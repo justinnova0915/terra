@@ -21,9 +21,20 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    SDL_Surface* bullet_bmp = SDL_LoadBMP("images.bmp");
+    SDL_Surface* raw_bmp = SDL_LoadBMP("images.bmp");
+    SDL_Surface* bullet_bmp = SDL_ConvertSurface(raw_bmp, SDL_PIXELFORMAT_RGB24);
+    SDL_DestroySurface(raw_bmp);
+    Uint32 colorkey = SDL_MapRGB(
+        SDL_GetPixelFormatDetails(bullet_bmp->format),
+        nullptr,
+        255,255,255
+    );
+    SDL_SetSurfaceColorKey(bullet_bmp, true, colorkey);
+
     SDL_Texture* bullet_texture = SDL_CreateTextureFromSurface(renderer, bullet_bmp);
     SDL_DestroySurface(bullet_bmp);
+
+    SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
 
     SDL_SetRenderVSync(renderer, 1);
     
@@ -117,12 +128,12 @@ int main(int argc, char* argv[]) {
     Emitter spiral{
         .x = 1000,
         .y = 500,
-        .interval = 0.01,
+        .interval = 0.001,
         .waves = 10,
         .bullet_num = 1,
         .size = 10,
-        .speed = 200,
-        .angle_increment = 1
+        .speed = 500,
+        .angle_increment = 0.1
     };
 
     Player player;
@@ -182,7 +193,7 @@ int main(int argc, char* argv[]) {
                 player.y += travel;
             }
         }
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
         for (int i = 0; i < projectiles.size(); i++) {
