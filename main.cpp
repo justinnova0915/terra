@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
     Uint32 colorkey = SDL_MapRGB(
         SDL_GetPixelFormatDetails(bullet_bmp->format),
         nullptr,
-        255,255,255
+        0,0,0
     );
     SDL_SetSurfaceColorKey(bullet_bmp, true, colorkey);
 
@@ -56,34 +56,33 @@ int main(int argc, char* argv[]) {
     };
 
     struct Projectile {
-        float x = 0;
-        float y = 0;
+        SDL_FPoint pos = {0,0};
         float r = 0;
         float theta = 0;
+        SDL_Color color {.r=0, .g=0, .b=0, .a=0};
 
         float speed = 0;
-
         bool alive = true;
 
         void update(float dt) {
             float travel = dt * speed;
-            x += SDL_cos(theta) * travel;
-            y += SDL_sin(theta) * travel;
-            if (x < -r*2 || x > Config::WINDOW_WIDTH || y < -r*2 || y > Config::WINDOW_HEIGHT) {
+            pos.x += SDL_cos(theta) * travel;
+            pos.y += SDL_sin(theta) * travel;
+            if (pos.x < -r*2 || pos.x > Config::WINDOW_WIDTH || pos.y < -r*2 || pos.y > Config::WINDOW_HEIGHT) {
                 alive = false;
             }
         }
 
         void render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
-            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-            const SDL_FRect projectile_circle = {x, y, r*2, r*2};
+            SDL_SetTextureColorMod(bullet_texture, color.r, color.g, color.b);
+            SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+            const SDL_FRect projectile_circle = {pos.x, pos.y, r*2, r*2};
             SDL_RenderTexture(renderer, bullet_texture, nullptr, &projectile_circle);
         }
     };
 
     struct Emitter {
-        float x = 0;
-        float y = 0;
+        SDL_FPoint pos = {0,0};
         float interval = 0;
         float waves = 0;
         float bullet_num = 0;
@@ -96,6 +95,12 @@ int main(int argc, char* argv[]) {
         float angle_increment = 0;
         float angle_spread = 0;
 
+        SDL_Color color {.r=0, .g=0, .b=0, .a=0};
+
+        function<SDL_FPoint(int wave)> pos_func = nullptr;
+        function<float(int wave)> ang_func = nullptr;
+
+
         float alive = true;
 
 
@@ -107,15 +112,23 @@ int main(int argc, char* argv[]) {
                 if (waves == 0) {
                     alive = false;
                 }
+
+                if (pos_func) {
+                    pos = pos_func(waves); 
+                }
+                if (ang_func) {
+                    angle = ang_func(waves);
+                }
+
                 angle += angle_increment;
 
                 for (int i = 0; i < bullet_num; i++) {
                     SDL_Log("spawning");
                     projectiles.push_back(Projectile {
-                        .x = x,
-                        .y = y,
+                        .pos = pos,
                         .r = size,
                         .theta = bullet_num > 1 ? i*(angle_spread/(bullet_num-1)) - angle_spread/2 + angle : angle,
+                        .color = color,
                         .speed = speed,
                         .alive = true
                     });
@@ -123,20 +136,46 @@ int main(int argc, char* argv[]) {
             }
         }
     };
-    
     vector<Projectile> projectiles;
+    vector<Emitter> emitters;
+    Player player;
+
+    Emitter scatter{
+        .pos = {1000, 500},
+        .interval = 0.1,
+        .waves = 100,
+        .bullet_num = 5,
+        .size = 5,
+        .speed = 400,
+        .angle_increment = 0.6,
+        .angle_spread =  1,
+        .color = {.r=255, .g=0, .b=0, .a=255}
+    };
+    
     Emitter spiral{
-        .x = 1000,
-        .y = 500,
-        .interval = 0.001,
-        .waves = 10,
+        .pos = {1000,500},
+        .interval = 0.1,
+        .waves = 100,
         .bullet_num = 1,
         .size = 10,
-        .speed = 500,
-        .angle_increment = 0.1
+        .speed = 200,
+        .angle_increment = 0.5,
+        .color = {.r=0, .g=0, .b=255, .a=255}
+    };
+    
+    Emitter bomb{
+        .interval = 0.5,
+        .waves = 100,
+        .bullet_num = 16,
+        .size = 5,
+        .speed = 200,
+        .angle = 0,
+        .angle_spread = 5.89049f,
+        .color = {.r=0, .g=0, .b=255, .a=255},
+        .pos_func = [](int)->SDL_FPoint{return{static_cast<float>(SDL_rand(Config::WINDOW_WIDTH)), static_cast<float>(SDL_rand(Config::WINDOW_HEIGHT))};},
     };
 
-    Player player;
+    emitters = {bomb, spiral, scatter};
 
     float last = 0;
     float dashclock = 0;
@@ -206,7 +245,14 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        spiral.update(dt, projectiles);
+        for (int i = 0; i < emitters.size(); i++) {
+            if (!emitters[i].alive) {
+                emitters[i] = *(emitters.end()-1);
+                emitters.pop_back();
+            } else {
+                emitters[i].update(dt, projectiles);
+            }
+        }
         
         // Drawing
 
