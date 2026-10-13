@@ -150,8 +150,7 @@ int main(int argc, char* argv[]) {
         SDL_Color warning_color = {};
 
 
-        function<float(float elapse        float anticipation_time = 0;
-        d)> ang_func = nullptr;
+        function<float(float elapsed)> ang_func = nullptr;
         function<SDL_FPoint(float elapsed)> pos_func = nullptr;
         SDL_Color color = {};
 
@@ -159,7 +158,7 @@ int main(int argc, char* argv[]) {
             elapsed += dt;
 
             if (elapsed < anticipation_time) {
-
+                
             }
             if (pos_func) {
                 pos = pos_func(elapsed);
