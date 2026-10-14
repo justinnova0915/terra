@@ -6,6 +6,10 @@
 
 using namespace std;
 
+SDL_Texture rect(float x, float y, float ) {
+    
+}
+
 int main(int argc, char* argv[]) {
 
     if(!SDL_Init(SDL_INIT_VIDEO)) {
@@ -143,28 +147,35 @@ int main(int argc, char* argv[]) {
     struct Beam {
         SDL_FPoint pos = {};
         float width = 0;
+        float length = 0;
         float angle = 0;
         float elapsed = 0;
 
         float anticipation_time = 0;
         SDL_Color warning_color = {};
 
-
         function<float(float elapsed)> ang_func = nullptr;
         function<SDL_FPoint(float elapsed)> pos_func = nullptr;
+        function<float(float elapsed)> len_func = nullptr;
+
         SDL_Color color = {};
 
-        void update(float dt) {
+        void update(float dt, SDL_Renderer* renderer) {
             elapsed += dt;
 
             if (elapsed < anticipation_time) {
-                
-            }
-            if (pos_func) {
-                pos = pos_func(elapsed);
-            }
-            if (ang_func) {
-                angle = ang_func(elapsed); 
+                SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+                const SDL_FRect rect = {pos.x, pos.y, width, len_func(elapsed)};
+                SDL_RenderFillRect(renderer, &rect);
+            } else {
+                if (pos_func) {
+                    pos = pos_func(elapsed);
+                }
+                if (ang_func) {
+                    angle = ang_func(elapsed); 
+                }
+
+
             }
 
 
