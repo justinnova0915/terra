@@ -232,12 +232,12 @@ int main(int argc, char* argv[]) {
     Beam test {
         .pos = {1000, 500},
         .width = 50,
-        .length = Config::WINDOW_HEIGHT,
+        .length = 3000,
         .angle = SDL_PI_F/2.0f,
         .duration = 10.0f,
         .anticipation_time = 1,
         .warning_color = {.r = 255, .g = 0, .b = 0, .a = 100},
-        //.ang_func = [](float elapsed)->float{return fmod(elapsed/2*SDL_PI_F*2, SDL_PI_F*2);},
+        .ang_func = [](float elapsed)->float{return fmod(elapsed/2*SDL_PI_F*2, SDL_PI_F*2);},
         .pos_func = [](float elapsed)->SDL_FPoint{return{Config::WINDOW_WIDTH/10.0f*elapsed, 0};},
         .color = {.r = 255, .g = 0, .b = 0, .a = 255}
     };
@@ -286,20 +286,17 @@ int main(int argc, char* argv[]) {
 
     while (running) {
 
-        // Clock
         float now = SDL_GetTicksNS();
         float dt = (now - last)/1000000000;
         last = now;
         dashclock += dt;
         
-        // Events
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_EVENT_QUIT) {
                 running = false;
             }
         }
 
-        // Movement
         float travel = dt * player.speed;
         const bool* keys = SDL_GetKeyboardState(nullptr);
         
@@ -379,23 +376,9 @@ int main(int argc, char* argv[]) {
     }
     
 
-    // Clean-up
     SDL_DestroyTexture(bullet_texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 
     SDL_Quit();
 }
-
-
-
-/* ANGLE SPREAD FORMULA
-n = nth bullet
-t_b = total bullet
-t = total angle
-θ = current angle
-
-A(n) = n*(t/(t_b-1)) - t/2 + θ
-A(0) = θ when t_b = 1 
-
-*/
