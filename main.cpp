@@ -2,12 +2,185 @@
 #include <SDL3/SDL_main.h>
 #include <vector>
 #include <functional>
+#include <cmath>
 #include "config.hpp"
 
 using namespace std;
 
-SDL_Texture rect(float x, float y, float ) {
+void DrawRect(SDL_Renderer* renderer, SDL_Color color, float x, float y, float width, float length, float angle);
+
+struct Player {
+    float x = 100;
+    float y = 100;
+    float w = 20;
+    float h = 20;
+
+    float speed = 200;
+    float dash = 50;
+
+    SDL_FRect get_rect() const {
+        return SDL_FRect {x, y, w, h};
+    }
+};
+
+struct Projectile {
+    SDL_FPoint pos = {0,0};
+    float r = 0;
+    float theta = 0;
+    SDL_Color color {.r=0, .g=0, .b=0, .a=0};
+
+    float speed = 0;
+    bool alive = true;
+
+    void update(float dt) {
+        float travel = dt * speed;
+        pos.x += SDL_cos(theta) * travel;
+        pos.y += SDL_sin(theta) * travel;
+        if (pos.x < -r*2 || pos.x > Config::WINDOW_WIDTH || pos.y < -r*2 || pos.y > Config::WINDOW_HEIGHT) {
+            alive = false;
+        }
+    }
+
+    void render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
+        SDL_SetTextureColorMod(bullet_texture, color.r, color.g, color.b);
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+        const SDL_FRect projectile_circle = {pos.x-r, pos.y-r, r*2, r*2};
+        SDL_RenderTexture(renderer, bullet_texture, nullptr, &projectile_circle);
+    }
+};
+
+struct Emitter {
+    SDL_FPoint pos = {0,0};
+    float interval = 0;
+    int waves = 0;
+    int bullet_num = 0;
+    float size = 0;
+
+    float speed = 0;
+
+    float elapsed = 0;
+    float angle = 0;
+    float angle_increment = 0;
+    float angle_spread = 0;
+
+    SDL_Color color {.r=0, .g=0, .b=0, .a=0};
+
+    function<SDL_FPoint(int wave)> pos_func = nullptr;
+    function<float(int wave)> ang_func = nullptr;
+
+
+    float alive = true;
+
+
+    void update(float dt, vector<Projectile> &projectiles) {
+        elapsed += dt;
+        if (elapsed > interval) {
+            elapsed = 0;
+            waves -= 1;
+            if (waves == 0) {
+                alive = false;
+            }
+
+            if (pos_func) {
+                pos = pos_func(waves); 
+            }
+            if (ang_func) {
+                angle = ang_func(waves);
+            }
+
+            angle += angle_increment;
+
+            for (int i = 0; i < bullet_num; i++) {
+                projectiles.push_back(Projectile {
+                    .pos = pos,
+                    .r = size,
+                    .theta = bullet_num > 1 ? i*(angle_spread/(bullet_num-1)) - angle_spread/2 + angle : angle,
+                    .color = color,
+                    .speed = speed,
+                    .alive = true
+                });
+            }
+        }
+    }
+};
+
+struct Beam {
+    SDL_FPoint pos = {};
+    float width = 0;
+    float length = 0;
+    float angle = 0;
+    float elapsed = 0;
+    float duration = 0;
+
+    float anticipation_time = 0;
+    SDL_Color warning_color = {};
+
+
+    function<float(float elapsed)> ang_func = nullptr;
+    function<SDL_FPoint(float elapsed)> pos_func = nullptr;
+    function<float(float elapsed)> len_func = nullptr;
+
+    SDL_Color color = {};
+
+    bool alive = true;
+
+    void update(SDL_Renderer* renderer, float dt) {
+        if (anticipation_time > 0) {
+            anticipation_time -= dt;
+            if (pos_func) {
+                pos = pos_func(0);
+            }
+            DrawRect(renderer, warning_color, pos.x, pos.y, width, length, angle);
+        } else {
+            elapsed += dt;
+
+            if (elapsed > duration) {
+                alive = false;
+            }
+            if (pos_func) {
+                pos = pos_func(elapsed);
+            }
+            if (ang_func) {
+                angle = ang_func(elapsed); 
+            }
+            if (len_func) {
+                length = len_func(elapsed);
+            }
+
+            DrawRect(renderer, color, pos.x, pos.y, width, length, angle);
+        }
+    }
+};
+
+void DrawRect(SDL_Renderer* renderer, SDL_Color color, float x, float y, float width, float length, float angle) {
     
+    float Fx = SDL_cos(angle) * length;
+    float Fy = SDL_sin(angle) * length;
+    float Px = -SDL_sin(angle) * width/2;
+    float Py = SDL_cos(angle) * width/2;
+    
+    SDL_FPoint a = {x+Px, y+Py};
+    SDL_FPoint b = {x+Fx+Px, y+Fy+Py};
+    SDL_FPoint c = {x+Fx-Px, y+Fy-Py};
+    SDL_FPoint d = {x-Px, y-Py};
+
+    SDL_FColor fcolor = {
+        .r = color.r/255.0f,
+        .g = color.g/255.0f,
+        .b = color.b/255.0f,
+        .a = color.a/255.0f,
+    };
+
+    SDL_Vertex verts[4] = {
+        {.position = a, .color = fcolor},
+        {.position = b, .color = fcolor},
+        {.position = c, .color = fcolor},
+        {.position = d, .color = fcolor},
+    };
+
+    int indices[6] = {0, 1, 2, 2, 3, 0};
+
+    SDL_RenderGeometry(renderer, nullptr, verts, 4, indices, 6);
 }
 
 int main(int argc, char* argv[]) {
@@ -43,148 +216,31 @@ int main(int argc, char* argv[]) {
     SDL_DestroySurface(bullet_bmp);
 
     SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
     SDL_SetRenderVSync(renderer, 1);
     
     bool running = true;
     SDL_Event event;
     
-    struct Player {
-        float x = 100;
-        float y = 100;
-        float w = 20;
-        float h = 20;
-
-        float speed = 200;
-        float dash = 50;
-
-        SDL_FRect get_rect() const {
-            return SDL_FRect {x, y, w, h};
-        }
-    };
-
-    struct Projectile {
-        SDL_FPoint pos = {0,0};
-        float r = 0;
-        float theta = 0;
-        SDL_Color color {.r=0, .g=0, .b=0, .a=0};
-
-        float speed = 0;
-        bool alive = true;
-
-        void update(float dt) {
-            float travel = dt * speed;
-            pos.x += SDL_cos(theta) * travel;
-            pos.y += SDL_sin(theta) * travel;
-            if (pos.x < -r*2 || pos.x > Config::WINDOW_WIDTH || pos.y < -r*2 || pos.y > Config::WINDOW_HEIGHT) {
-                alive = false;
-            }
-        }
-
-        void render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
-            SDL_SetTextureColorMod(bullet_texture, color.r, color.g, color.b);
-            SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-            const SDL_FRect projectile_circle = {pos.x-r, pos.y-r, r*2, r*2};
-            SDL_RenderTexture(renderer, bullet_texture, nullptr, &projectile_circle);
-        }
-    };
-
-    struct Emitter {
-        SDL_FPoint pos = {0,0};
-        float interval = 0;
-        int waves = 0;
-        int bullet_num = 0;
-        float size = 0;
-
-        float speed = 0;
-
-        float elapsed = 0;
-        float angle = 0;
-        float angle_increment = 0;
-        float angle_spread = 0;
-
-        SDL_Color color {.r=0, .g=0, .b=0, .a=0};
-
-        function<SDL_FPoint(int wave)> pos_func = nullptr;
-        function<float(int wave)> ang_func = nullptr;
-
-
-        float alive = true;
-
-
-        void update(float dt, vector<Projectile> &projectiles) {
-            elapsed += dt;
-            if (elapsed > interval) {
-                elapsed = 0;
-                waves -= 1;
-                if (waves == 0) {
-                    alive = false;
-                }
-
-                if (pos_func) {
-                    pos = pos_func(waves); 
-                }
-                if (ang_func) {
-                    angle = ang_func(waves);
-                }
-
-                angle += angle_increment;
-
-                for (int i = 0; i < bullet_num; i++) {
-                    projectiles.push_back(Projectile {
-                        .pos = pos,
-                        .r = size,
-                        .theta = bullet_num > 1 ? i*(angle_spread/(bullet_num-1)) - angle_spread/2 + angle : angle,
-                        .color = color,
-                        .speed = speed,
-                        .alive = true
-                    });
-                }
-            }
-        }
-    };
-
-    struct Beam {
-        SDL_FPoint pos = {};
-        float width = 0;
-        float length = 0;
-        float angle = 0;
-        float elapsed = 0;
-
-        float anticipation_time = 0;
-        SDL_Color warning_color = {};
-
-        function<float(float elapsed)> ang_func = nullptr;
-        function<SDL_FPoint(float elapsed)> pos_func = nullptr;
-        function<float(float elapsed)> len_func = nullptr;
-
-        SDL_Color color = {};
-
-        void update(float dt, SDL_Renderer* renderer) {
-            elapsed += dt;
-
-            if (elapsed < anticipation_time) {
-                SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-                const SDL_FRect rect = {pos.x, pos.y, width, len_func(elapsed)};
-                SDL_RenderFillRect(renderer, &rect);
-            } else {
-                if (pos_func) {
-                    pos = pos_func(elapsed);
-                }
-                if (ang_func) {
-                    angle = ang_func(elapsed); 
-                }
-
-
-            }
-
-
-        }
-    };
 
     vector<Projectile> projectiles;
     vector<Emitter> emitters;
+    vector<Beam> beams;
     Player player;
+
+    Beam test {
+        .pos = {1000, 500},
+        .width = 50,
+        .length = Config::WINDOW_HEIGHT,
+        .angle = SDL_PI_F/2.0f,
+        .duration = 10.0f,
+        .anticipation_time = 1,
+        .warning_color = {.r = 255, .g = 0, .b = 0, .a = 100},
+        //.ang_func = [](float elapsed)->float{return fmod(elapsed/2*SDL_PI_F*2, SDL_PI_F*2);},
+        .pos_func = [](float elapsed)->SDL_FPoint{return{Config::WINDOW_WIDTH/10.0f*elapsed, 0};},
+        .color = {.r = 255, .g = 0, .b = 0, .a = 255}
+    };
 
     Emitter scatter{
         .pos = {1000, 500},
@@ -222,6 +278,7 @@ int main(int argc, char* argv[]) {
     };
 
     emitters = {bomb, spiral, scatter};
+    beams = {test};
 
     float last = SDL_GetTicksNS();
     float dashclock = 0;
@@ -301,7 +358,17 @@ int main(int argc, char* argv[]) {
                 i++;
             }
         }
-        
+
+        for (int i = 0; i < beams.size();) {
+            if (!beams[i].alive) {
+                beams[i] = *(beams.end()-1);
+                beams.pop_back();
+            } else {
+                beams[i].update(renderer, dt);
+                i++;
+            }
+        }
+
         // Drawing
 
         SDL_SetRenderDrawColor(renderer, 88, 180, 219, 255);
