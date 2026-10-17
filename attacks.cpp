@@ -61,6 +61,10 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
         if (pos_func) {
             pos = pos_func(0);
         }
+        if (ang_func) {
+            angle = ang_func(0);
+        }
+        
         DrawRect(renderer, warning_color, pos.x, pos.y, width, length, angle);
     } else {
         elapsed += dt;
