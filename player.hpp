@@ -6,7 +6,7 @@ struct Player {
     float x = 100;
     float y = 100;
     float w = 20;
-    float h = 20;
+    float l = 20;
 
     float speed = 200;
     float dash = 50;
