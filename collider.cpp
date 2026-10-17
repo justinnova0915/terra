@@ -1,35 +1,16 @@
-#include "config.hpp"
 #include "attacks.hpp"
 #include "player.hpp"
+#include "collider.hpp"
 
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <vector>
-#include <functional>
 #include <cmath>
 
 namespace Collider {
 
-    struct Circle {
-        float x = 0;
-        float y = 0;
-        float r = 0;
-    };
-
-    struct Line {
-        float x = 0;
-        float y = 0;
-
-        float angle = 0;
-
-        float w = 0;
-        float l = 0;
-    };
-    
     bool ctoc(Circle c1, Circle c2) {
-        if (sqrt((c1.x - c2.x) + (c1.y - c2.y)) < (c1.r + c2.r)) {
-            return false;
-        }
+        return (c1.x - c2.x)*(c1.x - c2.x) + (c1.y - c2.y)*(c1.y - c2.y) <= (c1.r + c2.r)*(c1.r + c2.r);
     }
 
     bool ltoc(Circle player, Line line) {
@@ -49,6 +30,42 @@ namespace Collider {
     }
 
     bool ptoc() {
+        return false;
+    }
+
+    bool update(Player player, std::vector<Projectile> projectiles, std::vector<Beam> beams) {
+        Circle playerCollider = {
+            .x = player.x,
+            .y = player.y,
+            .r = player.w
+        };
+        
+        for (int i = 0; i < projectiles.size(); i++) {
+            Circle projectileCollider = {
+                .x = projectiles[i].pos.x,
+                .y = projectiles[i].pos.y,
+                .r = projectiles[i].r,
+            };
+
+            if (ctoc(playerCollider, projectileCollider)) {
+                return true;
+            }
+        }
+
+        for (int i = 0; i < beams.size(); i++) {
+            Line beam_collider {
+                .x = beams[i].pos.x,
+                .y = beams[i].pos.y,
+                .angle = beams[i].angle,
+                .w = beams[i].width,
+                .l = beams[i].length
+            };
+
+            if (ltoc(playerCollider, beam_collider)) {
+                return true;
+            }
+        }
+
         return false;
     }
 }

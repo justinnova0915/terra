@@ -1,6 +1,7 @@
 #include "config.hpp"
 #include "attacks.hpp"
 #include "player.hpp"
+#include "collider.hpp"
 
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
@@ -159,6 +160,13 @@ int main(int argc, char* argv[]) {
                 player.y += travel;
             }
         }
+
+        if (Collider::update(player, projectiles, beams)) {
+            SDL_Log("Hit!");
+        } else {
+            SDL_Log("\n");
+        }
+
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
