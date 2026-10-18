@@ -35,8 +35,8 @@ namespace Collider {
 
     bool update(Player player, std::vector<Projectile> projectiles, std::vector<Beam> beams) {
         Circle playerCollider = {
-            .x = player.x,
-            .y = player.y,
+            .x = player.x-player.w/2,
+            .y = player.y-player.l/2,
             .r = player.w
         };
         
@@ -53,6 +53,11 @@ namespace Collider {
         }
 
         for (int i = 0; i < beams.size(); i++) {
+
+            if (beams[i].anticipation_time > 0) {
+                continue;
+            }
+
             Line beam_collider {
                 .x = beams[i].pos.x,
                 .y = beams[i].pos.y,

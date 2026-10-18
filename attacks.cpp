@@ -64,8 +64,8 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
         if (ang_func) {
             angle = ang_func(0);
         }
-        
-        DrawRect(renderer, warning_color, pos.x, pos.y, width, length, angle);
+
+        Render(renderer, warning_color, pos.x, pos.y, width, length, angle);
     } else {
         elapsed += dt;
 
@@ -82,6 +82,6 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
             length = len_func(elapsed);
         }
 
-        DrawRect(renderer, color, pos.x, pos.y, width, length, angle);
+        Render(renderer, color, pos.x, pos.y, width, length, angle);
     }
 }

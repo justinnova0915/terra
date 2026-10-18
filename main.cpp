@@ -11,6 +11,13 @@
 
 using namespace std;
 
+enum class GameState {
+    Game,
+    Menu,
+    Death,
+};
+GameState state = GameState::Game;
+
 int main(int argc, char* argv[]) {
 
     if(!SDL_Init(SDL_INIT_VIDEO)) {
@@ -18,7 +25,6 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
 
@@ -39,24 +45,19 @@ int main(int argc, char* argv[]) {
         0,0,0
     );
     SDL_SetSurfaceColorKey(bullet_bmp, true, colorkey);
-
     SDL_Texture* bullet_texture = SDL_CreateTextureFromSurface(renderer, bullet_bmp);
     SDL_DestroySurface(bullet_bmp);
-
     SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
     SDL_SetRenderVSync(renderer, 1);
     
-    bool running = true;
-    SDL_Event event;
     
-
     vector<Projectile> projectiles;
     vector<Emitter> emitters;
     vector<Beam> beams;
     Player player;
-
+    
     Beam test {
         .pos = {1000, 500},
         .width = 50,
@@ -69,7 +70,7 @@ int main(int argc, char* argv[]) {
         .pos_func = [](float elapsed)->SDL_FPoint{return{Config::WINDOW_WIDTH/10.0f*elapsed, 0};},
         .color = {.r = 255, .g = 0, .b = 0, .a = 255}
     };
-
+    
     Emitter scatter{
         .pos = {1000, 500},
         .interval = 0.1,
@@ -104,105 +105,123 @@ int main(int argc, char* argv[]) {
         .color = {.r=0, .g=0, .b=255, .a=255},
         .pos_func = [](int)->SDL_FPoint{return{static_cast<float>(SDL_rand(Config::WINDOW_WIDTH)), static_cast<float>(SDL_rand(Config::WINDOW_HEIGHT))};},
     };
-
+    
     emitters = {bomb, spiral, scatter};
     beams = {test};
-
+    
+    bool running = true;
+    SDL_Event event;
     float last = SDL_GetTicksNS();
     float dashclock = 0;
     float dashcooldown = 1;
-
+    
     while (running) {
-
+        
         float now = SDL_GetTicksNS();
         float dt = (now - last)/1000000000;
         last = now;
         dashclock += dt;
+        float travel = dt * player.speed;
         
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_EVENT_QUIT) {
                 running = false;
             }
         }
-
-        float travel = dt * player.speed;
-        const bool* keys = SDL_GetKeyboardState(nullptr);
         
-        if (keys[SDL_SCANCODE_D]) {
-            if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
-                player.x += player.dash;
-                dashclock = 0;
-            } else {
-                player.x += travel;
-            }
-        }
-        if (keys[SDL_SCANCODE_W]) {
-            if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
-                player.y -= player.dash;
-                dashclock = 0;
-            } else {
-                player.y -= travel;
-            }
-        }
-        if (keys[SDL_SCANCODE_A]) {
-            if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
-                player.x -= player.dash;
-                dashclock = 0;
-            } else {
-                player.x -= travel;
-            }
-        }
-        if (keys[SDL_SCANCODE_S]) {
-            if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
-                player.y += player.dash;
-                dashclock = 0;
-            } else {
-                player.y += travel;
-            }
-        }
-
-        if (Collider::update(player, projectiles, beams)) {
-            SDL_Log("Hit!");
-        } else {
-            SDL_Log("\n");
-        }
-
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        for (int i = 0; i < projectiles.size();) {
-            if (!projectiles[i].alive) {
-                projectiles[i] = *(projectiles.end()-1);
-                projectiles.pop_back();
-            } else {
-                projectiles[i].update(dt);
-                projectiles[i].render(renderer, bullet_texture);
-                i++;
-            }
+        if (player.health <= 0) {
+            state = GameState::Death;
         }
+        
+        switch (state) {
+            case GameState::Game:
+                const bool* keys = SDL_GetKeyboardState(nullptr);
+                if (keys[SDL_SCANCODE_D]) {
+                    if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
+                        player.x += player.dash;
+                        dashclock = 0;
+                    } else {
+                        player.x += travel;
+                    }
+                }
+                if (keys[SDL_SCANCODE_W]) {
+                    if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
+                        player.y -= player.dash;
+                        dashclock = 0;
+                    } else {
+                        player.y -= travel;
+                    }
+                }
+                if (keys[SDL_SCANCODE_A]) {
+                    if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
+                        player.x -= player.dash;
+                        dashclock = 0;
+                    } else {
+                        player.x -= travel;
+                    }
+                }
+                if (keys[SDL_SCANCODE_S]) {
+                    if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
+                        player.y += player.dash;
+                        dashclock = 0;
+                    } else {
+                        player.y += travel;
+                    }
+                }
+                for (int i = 0; i < projectiles.size();) {
+                    if (!projectiles[i].alive) {
+                        projectiles[i] = *(projectiles.end()-1);
+                        projectiles.pop_back();
+                    } else {
+                        projectiles[i].update(dt);
+                        projectiles[i].render(renderer, bullet_texture);
+                        i++;
+                    }
+                }
+                
+                for (int i = 0; i < emitters.size();) {
+                    if (!emitters[i].alive) {
+                        emitters[i] = *(emitters.end()-1);
+                        emitters.pop_back();
+                    } else {
+                        emitters[i].update(dt, projectiles);
+                        i++;
+                    }
+                }
+                
+                for (int i = 0; i < beams.size();) {
+                    if (!beams[i].alive) {
+                        beams[i] = *(beams.end()-1);
+                        beams.pop_back();
+                    } else {
+                        beams[i].update(renderer, dt);
+                        i++;
+                    }
+                }
 
-        for (int i = 0; i < emitters.size();) {
-            if (!emitters[i].alive) {
-                emitters[i] = *(emitters.end()-1);
-                emitters.pop_back();
-            } else {
-                emitters[i].update(dt, projectiles);
-                i++;
+                switch (player.state) {
+                    case Player::PlayerState::Live:
+                        if (Collider::update(player, projectiles, beams)) {
+                            player.health--;
+                        }
+                    case Player::PlayerState::HitCooldown:
+                        break;
+                }
+            case GameState::Death:
+                for (int i = 0; i < projectiles.size();) {
+                    projectiles[i].render(renderer, bullet_texture);
+                }
+                
+                for (int i = 0; i < beams.size();) {
+                    Render(renderer, beams[i].warning_color, beams[i].pos.x, beams[i].pos.y, beams[i].width, beams[i].length, beams[i].angle);
+                }
+                case GameState::Menu:
+                    break;
             }
-        }
-
-        for (int i = 0; i < beams.size();) {
-            if (!beams[i].alive) {
-                beams[i] = *(beams.end()-1);
-                beams.pop_back();
-            } else {
-                beams[i].update(renderer, dt);
-                i++;
-            }
-        }
-
-        // Drawing
-
+            
         SDL_SetRenderDrawColor(renderer, 88, 180, 219, 255);
         SDL_FRect player_rect = player.get_rect();
         SDL_RenderFillRect(renderer, &player_rect);

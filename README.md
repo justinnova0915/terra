@@ -21,3 +21,5 @@ You control a small character in a single-screen arena while a boss attacks you 
 ## Status
 
 In development for Hack Club Terra, October 2026 – January 2027.
+
+to do tommowrow: CMake, GameManager, Restart Function

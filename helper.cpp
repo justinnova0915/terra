@@ -5,7 +5,7 @@
 #include <cmath>
 #include "config.hpp"
 
-void DrawRect(SDL_Renderer* renderer, SDL_Color color, float x, float y, float width, float length, float angle) {
+void Render(SDL_Renderer* renderer, SDL_Color color, float x, float y, float width, float length, float angle) {
     
     float Fx = SDL_cos(angle) * length;
     float Fy = SDL_sin(angle) * length;
