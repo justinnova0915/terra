@@ -11,7 +11,7 @@ struct Player {
     SDL_Color color = {88, 180, 219, 255};
 
     float speed = 200;
-    float dash = 50;
+    float dash = 100;
     float health = 5;
 
     const float cooldown = 2;

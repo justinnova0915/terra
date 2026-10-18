@@ -205,6 +205,8 @@ int main(int argc, char* argv[]) {
                 }
 
                 player.update(dt);
+                player.render(renderer);
+                
                 switch (player.state) {
                     case Player::PlayerState::Live:
                         if (Collider::update(player, projectiles, beams)) {
