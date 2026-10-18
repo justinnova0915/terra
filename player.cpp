@@ -5,3 +5,22 @@
 SDL_FRect Player::get_rect() const {
     return SDL_FRect {x, y, w, l};
 }
+
+void Player::update(float dt) {
+    if (state == PlayerState::HitCooldown) {
+        cooldownElapsed -= dt;
+        
+        if (cooldownElapsed < 0) {
+            state = PlayerState::Live;
+        }
+    }
+}
+
+void Player::on_hit() {
+    if (state == PlayerState::Live) {
+        SDL_Log("Hit!");
+        health--;
+        state = PlayerState::HitCooldown;
+        cooldownElapsed = cooldown;
+    }
+}

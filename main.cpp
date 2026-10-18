@@ -173,7 +173,7 @@ int main(int argc, char* argv[]) {
                         player.y += travel;
                     }
                 }
-                for (int i = 0; i < projectiles.size(); i++) {
+                for (int i = 0; i < projectiles.size();) {
                     if (!projectiles[i].alive) {
                         projectiles[i] = *(projectiles.end()-1);
                         projectiles.pop_back();
@@ -184,7 +184,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
                 
-                for (int i = 0; i < emitters.size(); i++) {
+                for (int i = 0; i < emitters.size();) {
                     if (!emitters[i].alive) {
                         emitters[i] = *(emitters.end()-1);
                         emitters.pop_back();
@@ -194,7 +194,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
                 
-                for (int i = 0; i < beams.size(); i++) {
+                for (int i = 0; i < beams.size();) {
                     if (!beams[i].alive) {
                         beams[i] = *(beams.end()-1);
                         beams.pop_back();
@@ -204,10 +204,11 @@ int main(int argc, char* argv[]) {
                     }
                 }
 
+                player.update(dt);
                 switch (player.state) {
                     case Player::PlayerState::Live:
                         if (Collider::update(player, projectiles, beams)) {
-                            player.health--;
+                            player.on_hit();
                         }
                     case Player::PlayerState::HitCooldown:
                         break;
@@ -219,7 +220,7 @@ int main(int argc, char* argv[]) {
                 }
                 
                 for (int i = 0; i < beams.size(); i++) {
-                    Render(renderer, beams[i].warning_color, beams[i].pos.x, beams[i].pos.y, beams[i].width, beams[i].length, beams[i].angle);
+                    Render(renderer, beams[i].color, beams[i].pos.x, beams[i].pos.y, beams[i].width, beams[i].length, beams[i].angle);
                 }
             case GameState::Menu:
                 break;

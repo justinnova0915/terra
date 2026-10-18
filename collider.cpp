@@ -35,8 +35,8 @@ namespace Collider {
 
     bool update(Player player, std::vector<Projectile> projectiles, std::vector<Beam> beams) {
         Circle playerCollider = {
-            .x = player.x-player.w/2,
-            .y = player.y-player.l/2,
+            .x = player.x+player.w/2,
+            .y = player.y+player.l/2,
             .r = player.w
         };
         

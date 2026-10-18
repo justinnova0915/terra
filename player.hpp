@@ -12,6 +12,9 @@ struct Player {
     float dash = 50;
     float health = 5;
 
+    const float cooldown = 5;
+    float cooldownElapsed = 0;
+
     enum class PlayerState {
         Live,
         HitCooldown,
@@ -20,4 +23,8 @@ struct Player {
     PlayerState state = PlayerState::Live;
 
     SDL_FRect get_rect() const;
+    
+    void update(float dt);
+
+    void on_hit();
 };
