@@ -1,8 +1,20 @@
-cmake_minimum_required(VERSION 4.4)
+cmake_minimum_required(VERSION 3.25)
 
 project(game VERSION 0.1 LANGUAGES CXX)
 
 find_package(SDL3 REQUIRED)
+
+if(NOT SDL3_FOUND)
+    message(STATUS "SDL3 not found locally; fetching from GitHub...")
+    include(FetchContent)
+    FetchContent_Declare(
+        SDL3
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+        GIT_TAG        release-3.2.0
+        GIT_SHALLOW    TRUE
+    )
+    FetchContent_MakeAvailable(SDL3)
+endif()
 
 add_executable(
     main 

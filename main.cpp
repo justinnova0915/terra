@@ -36,6 +36,7 @@ int main(int argc, char* argv[]) {
     SDL_Surface* raw_bmp = SDL_LoadBMP("images.bmp");
     if (!raw_bmp) {
         SDL_Log("SDL Image Loading Error: %s", SDL_GetError());
+        return 1;
     }
     SDL_Surface* bullet_bmp = SDL_ConvertSurface(raw_bmp, SDL_PIXELFORMAT_RGB24);
     SDL_DestroySurface(raw_bmp);
@@ -172,7 +173,7 @@ int main(int argc, char* argv[]) {
                         player.y += travel;
                     }
                 }
-                for (int i = 0; i < projectiles.size();) {
+                for (int i = 0; i < projectiles.size(); i++) {
                     if (!projectiles[i].alive) {
                         projectiles[i] = *(projectiles.end()-1);
                         projectiles.pop_back();
@@ -183,7 +184,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
                 
-                for (int i = 0; i < emitters.size();) {
+                for (int i = 0; i < emitters.size(); i++) {
                     if (!emitters[i].alive) {
                         emitters[i] = *(emitters.end()-1);
                         emitters.pop_back();
@@ -193,7 +194,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
                 
-                for (int i = 0; i < beams.size();) {
+                for (int i = 0; i < beams.size(); i++) {
                     if (!beams[i].alive) {
                         beams[i] = *(beams.end()-1);
                         beams.pop_back();
@@ -211,12 +212,13 @@ int main(int argc, char* argv[]) {
                     case Player::PlayerState::HitCooldown:
                         break;
                 }
+                break;
             case GameState::Death:
-                for (int i = 0; i < projectiles.size();) {
+                for (int i = 0; i < projectiles.size(); i++) {
                     projectiles[i].render(renderer, bullet_texture);
                 }
                 
-                for (int i = 0; i < beams.size();) {
+                for (int i = 0; i < beams.size(); i++) {
                     Render(renderer, beams[i].warning_color, beams[i].pos.x, beams[i].pos.y, beams[i].width, beams[i].length, beams[i].angle);
                 }
             case GameState::Menu:

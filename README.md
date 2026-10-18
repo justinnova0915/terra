@@ -11,6 +11,17 @@ You control a small character in a single-screen arena while a boss attacks you 
 - Move in 8 directions to dodge incoming patterns
 - Dash to pass through hazards. You are invincible while dashing
 
+## Build and Run
+
+Run the following commands:
+
+```bash
+cmake -B build -S .
+cmake --build build
+./build/main        # Linux / macOS
+.\build\Debug\main  # Windows
+```
+
 ## Controls
 
 | Input | Action |
