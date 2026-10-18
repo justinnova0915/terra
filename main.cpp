@@ -225,15 +225,9 @@ int main(int argc, char* argv[]) {
             case GameState::Menu:
                 break;
         }
-            
-        SDL_SetRenderDrawColor(renderer, 88, 180, 219, 255);
-        SDL_FRect player_rect = player.get_rect();
-        SDL_RenderFillRect(renderer, &player_rect);
-
         SDL_RenderPresent(renderer);
     }
     
-
     SDL_DestroyTexture(bullet_texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

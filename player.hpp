@@ -8,11 +8,13 @@ struct Player {
     float w = 20;
     float l = 20;
 
+    SDL_Color color = {88, 180, 219, 255};
+
     float speed = 200;
     float dash = 50;
     float health = 5;
 
-    const float cooldown = 5;
+    const float cooldown = 2;
     float cooldownElapsed = 0;
 
     enum class PlayerState {
@@ -23,6 +25,8 @@ struct Player {
     PlayerState state = PlayerState::Live;
 
     SDL_FRect get_rect() const;
+
+    void render(SDL_Renderer* renderer);
     
     void update(float dt);
 
