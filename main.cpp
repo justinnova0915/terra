@@ -128,6 +128,7 @@ int main(int argc, char* argv[]) {
                 running = false;
             }
         }
+        const bool* keys = SDL_GetKeyboardState(nullptr);
         
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
@@ -136,9 +137,9 @@ int main(int argc, char* argv[]) {
             state = GameState::Death;
         }
         
+
         switch (state) {
             case GameState::Game:
-                const bool* keys = SDL_GetKeyboardState(nullptr);
                 if (keys[SDL_SCANCODE_D]) {
                     if (keys[SDL_SCANCODE_SPACE] && dashclock > dashcooldown) {
                         player.x += player.dash;
@@ -218,9 +219,9 @@ int main(int argc, char* argv[]) {
                 for (int i = 0; i < beams.size();) {
                     Render(renderer, beams[i].warning_color, beams[i].pos.x, beams[i].pos.y, beams[i].width, beams[i].length, beams[i].angle);
                 }
-                case GameState::Menu:
-                    break;
-            }
+            case GameState::Menu:
+                break;
+        }
             
         SDL_SetRenderDrawColor(renderer, 88, 180, 219, 255);
         SDL_FRect player_rect = player.get_rect();
