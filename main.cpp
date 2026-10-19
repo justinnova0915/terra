@@ -16,6 +16,7 @@ enum class GameState {
     Menu,
     Death,
 };
+
 GameState state = GameState::Game;
 
 int main(int argc, char* argv[]) {
@@ -33,11 +34,13 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    SDL_Surface* raw_bmp = SDL_LoadBMP("images.bmp");
+    string img_path = Helper::get_resource_path("Assets/images.bmp");    
+    SDL_Surface* raw_bmp = SDL_LoadBMP(img_path.c_str());
     if (!raw_bmp) {
         SDL_Log("SDL Image Loading Error: %s", SDL_GetError());
         return 1;
     }
+
     SDL_Surface* bullet_bmp = SDL_ConvertSurface(raw_bmp, SDL_PIXELFORMAT_RGB24);
     SDL_DestroySurface(raw_bmp);
     Uint32 colorkey = SDL_MapRGB(
@@ -107,8 +110,8 @@ int main(int argc, char* argv[]) {
         .pos_func = [](int)->SDL_FPoint{return{static_cast<float>(SDL_rand(Config::WINDOW_WIDTH)), static_cast<float>(SDL_rand(Config::WINDOW_HEIGHT))};},
     };
     
-    emitters = {bomb, spiral, scatter};
-    beams = {test};
+    emitters = {bomb};
+    //beams = {test};
     
     bool running = true;
     SDL_Event event;
@@ -222,7 +225,7 @@ int main(int argc, char* argv[]) {
                 }
                 
                 for (int i = 0; i < beams.size(); i++) {
-                    Render(renderer, beams[i].color, beams[i].pos.x, beams[i].pos.y, beams[i].width, beams[i].length, beams[i].angle);
+                    beams[i].render(renderer, beams[i].color);
                 }
             case GameState::Menu:
                 break;

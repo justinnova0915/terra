@@ -18,6 +18,7 @@ void Player::update(float dt) {
         cooldownElapsed -= dt;
         if (cooldownElapsed < 0) {
             state = PlayerState::Live;
+            color = {88, 180, 219, 255};
         }
     }
 }

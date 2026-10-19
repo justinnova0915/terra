@@ -65,7 +65,7 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
             angle = ang_func(0);
         }
 
-        Render(renderer, warning_color, pos.x, pos.y, width, length, angle);
+        render(renderer, warning_color);
     } else {
         elapsed += dt;
 
@@ -82,6 +82,37 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
             length = len_func(elapsed);
         }
 
-        Render(renderer, color, pos.x, pos.y, width, length, angle);
+        render(renderer, color);
     }
+}
+
+void Beam::render(SDL_Renderer* renderer, SDL_Color color) {
+    
+    float Fx = SDL_cos(angle) * length;
+    float Fy = SDL_sin(angle) * length;
+    float Px = -SDL_sin(angle) * width/2;
+    float Py = SDL_cos(angle) * width/2;
+    
+    SDL_FPoint a = {pos.x+Px, pos.y+Py};
+    SDL_FPoint b = {pos.x+Fx+Px, pos.y+Fy+Py};
+    SDL_FPoint c = {pos.x+Fx-Px, pos.y+Fy-Py};
+    SDL_FPoint d = {pos.x-Px, pos.y-Py};
+
+    SDL_FColor fcolor = {
+        .r = color.r/255.0f,
+        .g = color.g/255.0f,
+        .b = color.b/255.0f,
+        .a = color.a/255.0f,
+    };
+
+    SDL_Vertex verts[4] = {
+        {.position = a, .color = fcolor},
+        {.position = b, .color = fcolor},
+        {.position = c, .color = fcolor},
+        {.position = d, .color = fcolor},
+    };
+
+    int indices[6] = {0, 1, 2, 2, 3, 0};
+
+    SDL_RenderGeometry(renderer, nullptr, verts, 4, indices, 6);
 }

@@ -68,4 +68,6 @@ struct Beam {
     bool alive = true;
 
     void update(SDL_Renderer* renderer, float dt);
+
+    void render(SDL_Renderer* renderer, SDL_Color color);
 };

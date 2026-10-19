@@ -39,6 +39,8 @@ namespace Collider {
             .y = player.y+player.l/2,
             .r = player.w
         };
+
+        
         
         for (int i = 0; i < projectiles.size(); i++) {
             Circle projectileCollider = {
