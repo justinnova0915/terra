@@ -110,8 +110,8 @@ int main(int argc, char* argv[]) {
         .pos_func = [](int)->SDL_FPoint{return{static_cast<float>(SDL_rand(Config::WINDOW_WIDTH)), static_cast<float>(SDL_rand(Config::WINDOW_HEIGHT))};},
     };
     
-    emitters = {bomb};
-    //beams = {test};
+    emitters = {bomb, scatter, spiral};
+    beams = {test};
     
     bool running = true;
     SDL_Event event;
