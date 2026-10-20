@@ -57,17 +57,18 @@ struct Beam {
 
     float anticipation_time = 0;
     SDL_Color warning_color = {};
+    SDL_Color normal_color = {};
 
 
     std::function<float(float elapsed)> ang_func = nullptr;
     std::function<SDL_FPoint(float elapsed)> pos_func = nullptr;
     std::function<float(float elapsed)> len_func = nullptr;
 
-    SDL_Color color = {};
+    SDL_Color current_color = {};
 
     bool alive = true;
 
-    void update(SDL_Renderer* renderer, float dt);
+    void update(float dt);
 
-    void render(SDL_Renderer* renderer, SDL_Color color);
+    void render(SDL_Renderer* renderer);
 };

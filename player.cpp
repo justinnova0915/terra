@@ -32,3 +32,10 @@ void Player::on_hit() {
         cooldownElapsed = cooldown;
     }
 }
+
+void Player::reset() {
+    health = 5;
+    state = PlayerState::Live;
+    cooldownElapsed = 0;
+    color = {88, 180, 219, 255};
+}

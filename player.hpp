@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 
@@ -31,4 +32,6 @@ struct Player {
     void update(float dt);
 
     void on_hit();
+
+    void reset();
 };

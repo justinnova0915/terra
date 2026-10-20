@@ -2,12 +2,14 @@
 #include "attacks.hpp"
 #include "player.hpp"
 #include "collider.hpp"
+#include "helper.hpp"
 
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <vector>
 #include <functional>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -20,43 +22,6 @@ enum class GameState {
 GameState state = GameState::Game;
 
 int main(int argc, char* argv[]) {
-
-    if(!SDL_Init(SDL_INIT_VIDEO)) {
-        SDL_Log("SDL Error: %s", SDL_GetError());
-        return 1;
-    }
-
-    SDL_Window* window = nullptr;
-    SDL_Renderer* renderer = nullptr;
-
-    if (!SDL_CreateWindowAndRenderer("game", Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT, 0, &window, &renderer)) {
-        SDL_Log("SDL Window Creation Error: %s", SDL_GetError());
-        return 1;
-    }
-    
-    string img_path = Helper::get_resource_path("Assets/images.bmp");    
-    SDL_Surface* raw_bmp = SDL_LoadBMP(img_path.c_str());
-    if (!raw_bmp) {
-        SDL_Log("SDL Image Loading Error: %s", SDL_GetError());
-        return 1;
-    }
-
-    SDL_Surface* bullet_bmp = SDL_ConvertSurface(raw_bmp, SDL_PIXELFORMAT_RGB24);
-    SDL_DestroySurface(raw_bmp);
-    Uint32 colorkey = SDL_MapRGB(
-        SDL_GetPixelFormatDetails(bullet_bmp->format),
-        nullptr,
-        0,0,0
-    );
-    SDL_SetSurfaceColorKey(bullet_bmp, true, colorkey);
-    SDL_Texture* bullet_texture = SDL_CreateTextureFromSurface(renderer, bullet_bmp);
-    SDL_DestroySurface(bullet_bmp);
-    SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-
-    SDL_SetRenderVSync(renderer, 1);
-    
-    
     vector<Projectile> projectiles;
     vector<Emitter> emitters;
     vector<Beam> beams;
@@ -227,6 +192,7 @@ int main(int argc, char* argv[]) {
                 for (int i = 0; i < beams.size(); i++) {
                     beams[i].render(renderer, beams[i].color);
                 }
+                player.render(renderer);
             case GameState::Menu:
                 break;
         }

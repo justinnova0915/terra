@@ -55,7 +55,7 @@ void Emitter::update(float dt, std::vector<Projectile> &projectiles) {
     }
 }
 
-void Beam::update(SDL_Renderer* renderer, float dt) {
+void Beam::update(float dt) {
     if (anticipation_time > 0) {
         anticipation_time -= dt;
         if (pos_func) {
@@ -65,7 +65,8 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
             angle = ang_func(0);
         }
 
-        render(renderer, warning_color);
+        current_color = warning_color;
+
     } else {
         elapsed += dt;
 
@@ -82,11 +83,11 @@ void Beam::update(SDL_Renderer* renderer, float dt) {
             length = len_func(elapsed);
         }
 
-        render(renderer, color);
+        current_color = normal_color;
     }
 }
 
-void Beam::render(SDL_Renderer* renderer, SDL_Color color) {
+void Beam::render(SDL_Renderer* renderer) {
     
     float Fx = SDL_cos(angle) * length;
     float Fy = SDL_sin(angle) * length;
@@ -99,10 +100,10 @@ void Beam::render(SDL_Renderer* renderer, SDL_Color color) {
     SDL_FPoint d = {pos.x-Px, pos.y-Py};
 
     SDL_FColor fcolor = {
-        .r = color.r/255.0f,
-        .g = color.g/255.0f,
-        .b = color.b/255.0f,
-        .a = color.a/255.0f,
+        .r = current_color.r/255.0f,
+        .g = current_color.g/255.0f,
+        .b = current_color.b/255.0f,
+        .a = current_color.a/255.0f,
     };
 
     SDL_Vertex verts[4] = {
