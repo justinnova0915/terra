@@ -1,5 +1,8 @@
 #pragma once
 
+#include "attacks.hpp"
+#include "player.hpp"
+
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <vector>

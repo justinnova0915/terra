@@ -1,11 +1,4 @@
-#include "config.hpp"
-#include "helper.hpp"
 #include "attacks.hpp"
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
-#include <vector>
-#include <functional>
-#include <cmath>
 
 void Projectile::update(float dt) {
     float travel = dt * speed;

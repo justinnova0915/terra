@@ -12,11 +12,16 @@ struct Player {
     SDL_Color color = {88, 180, 219, 255};
 
     float speed = 200;
-    float dash = 100;
+    float dash = 200;
     float health = 5;
 
     const float cooldown = 2;
     float cooldownElapsed = 0;
+
+    float dashcooldown = 1;
+    float dashclock = 0;
+
+    float travel = 0;
 
     enum class PlayerState {
         Live,
@@ -29,7 +34,7 @@ struct Player {
 
     void render(SDL_Renderer* renderer);
     
-    void update(float dt);
+    void update(float dt, const bool* keys);
 
     void on_hit();
 
