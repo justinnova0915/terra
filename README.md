@@ -12,10 +12,11 @@ You control a small character in a single-screen arena while a boss attacks you 
 - Dash to pass through hazards. You are invincible while dashing
 
 ## Build and Run
-
-Run the following commands:
+The Release build is Linux ONLY, Windows and MacOS users please run the following commands:
 
 ```bash
+git clone https://github.com/justinnova0915/terra.git
+cd terra
 cmake -B build -S .
 cmake --build build
 ./build/main        # Linux / macOS
@@ -26,11 +27,9 @@ cmake --build build
 
 | Input | Action |
 |---|---|
-| WASD / Arrow keys | Move |
-| Space / Shift | Dash |
+| WASD | Move |
+| Space | Dash |
 
 ## Status
 
 In development for Hack Club Terra, October 2026 – January 2027.
-
-to do tommowrow: CMake, GameManager, Restart Function

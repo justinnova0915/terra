@@ -37,3 +37,10 @@ add_custom_command(TARGET main POST_BUILD
         "${CMAKE_CURRENT_SOURCE_DIR}/Assets"
         "$<TARGET_FILE_DIR:main>/Assets"
 )
+
+add_custom_target(release_zip
+    COMMAND ${CMAKE_COMMAND} -E tar "cf" "Release-V0.1.2-Alpha-linux-x86_64.zip" --format=zip -- main Assets
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    DEPENDS main
+    COMMENT "Creating release zip"
+)
