@@ -12,6 +12,11 @@ You control a small character in a single-screen arena while a boss attacks you 
 - Dash to pass through hazards. You are invincible while dashing
 
 ## Build and Run
+
+### Linux
+Simply download the release zip file, extract it, and run the executable named `main`.
+
+### Windows and MacOS
 The Release build is Linux ONLY, Windows and MacOS users please run the following commands:
 
 ```bash

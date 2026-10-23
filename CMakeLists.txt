@@ -32,6 +32,8 @@ target_link_libraries(main PRIVATE
     SDL3::SDL3
 )
 
+set_target_properties(main PROPERTIES BUILD_RPATH "$ORIGIN")
+
 add_custom_command(TARGET main POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${CMAKE_CURRENT_SOURCE_DIR}/Assets"
@@ -39,7 +41,8 @@ add_custom_command(TARGET main POST_BUILD
 )
 
 add_custom_target(release_zip
-    COMMAND ${CMAKE_COMMAND} -E tar "cf" "Release-V0.1.2-Alpha-linux-x86_64.zip" --format=zip -- main Assets
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3::SDL3> ${CMAKE_CURRENT_BINARY_DIR}/libSDL3.so.0
+    COMMAND ${CMAKE_COMMAND} -E tar "cf" "Release-V0.1.2-Alpha-linux-x86_64.zip" --format=zip -- main libSDL3.so.0 Assets
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
     DEPENDS main
     COMMENT "Creating release zip"
