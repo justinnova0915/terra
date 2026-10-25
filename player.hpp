@@ -16,7 +16,7 @@ struct Player {
 
     float speed = 200;
     float dash = 200;
-    float health = 5;
+    float health = 500000000;
 
     const float cooldown = 2;
     float cooldownElapsed = 0;

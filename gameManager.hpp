@@ -16,7 +16,7 @@
 
 struct Clock {
     float time = 0;
-    float last = SDL_GetTicksNS();
+    float last = SDL_GetTicks();
 
     float tick();
 

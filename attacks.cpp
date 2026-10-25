@@ -31,8 +31,11 @@ void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles)
     if (alive) {
         elapsed += dt;
         if (elapsed > interval) {
-            elapsed = 0;
+            elapsed -= interval;
             waves -= 1;
+            if (start_timestamp == 3.094f || start_timestamp == 4.894f) {
+                SDL_Log("emitter fire time=%f start=%f interval=%f waves=%d", time, start_timestamp, interval, waves);
+            }
             
             if (pos_func) {
                 pos = pos_func(waves); 
@@ -58,7 +61,8 @@ void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles)
 }
 
 void Beam::update(float dt, float time) {
-    if (time > duration + start_timestamp || time < start_timestamp - anticipation_time) {
+    
+    if (time < start_timestamp - anticipation_time || time > duration + start_timestamp) {
         alive = false;
     } else {
         alive = true;

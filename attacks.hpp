@@ -32,7 +32,7 @@ struct Emitter {
 
     float speed = 0;
 
-    float elapsed = 0;
+    float elapsed = 0; 
     float angle = 0;
     float angle_increment = 0;
     float angle_spread = 0;
@@ -42,7 +42,7 @@ struct Emitter {
     std::function<SDL_FPoint(int wave)> pos_func = nullptr;
     std::function<float(int wave)> ang_func = nullptr;
 
-    float alive = true;
+    bool alive = true;
 
     void update(float dt, float time, std::vector<Projectile> &projectiles);
 };

@@ -1,8 +1,8 @@
 #include "gameManager.hpp"
 
 float Clock::tick() {
-    float now = SDL_GetTicksNS();
-    float dt = (now - last)/1.0e9f;
+    float now = SDL_GetTicks();
+    float dt = (now - last)/1000.0f;
     time += dt;
     last = now;
     return dt;
@@ -10,7 +10,7 @@ float Clock::tick() {
 
 void Clock::reset() {
     time = 0;
-    last = SDL_GetTicksNS();
+    last = SDL_GetTicks();
 }
 
 
@@ -83,6 +83,8 @@ void GameManager::update() {
     dt = clock.tick();
     const bool* keys = SDL_GetKeyboardState(nullptr);
     float mapTime = clock.time - offset;
+
+    SDL_Log(std::to_string(clock.time).c_str());
 
     switch (state) {
         case GameState::Game:
