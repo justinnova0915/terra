@@ -9,6 +9,7 @@ float Clock::tick() {
 }
 
 void Clock::reset() {
+    time = 0;
     last = SDL_GetTicksNS();
 }
 
@@ -56,11 +57,11 @@ int GameManager::init() {
 }
 
 void GameManager::reset() {
-    clock.reset();
     player.reset();
     levelManager.load(0);
     audio.load_song(levelManager.levels[levelManager.levelIndex].path);
     audio.play();
+    clock.reset();
 }
 
 void GameManager::get_events() {
@@ -81,6 +82,7 @@ void GameManager::get_events() {
 void GameManager::update() {
     dt = clock.tick();
     const bool* keys = SDL_GetKeyboardState(nullptr);
+    float mapTime = clock.time - offset;
 
     switch (state) {
         case GameState::Game:
@@ -92,7 +94,7 @@ void GameManager::update() {
                 audio.pause();
             }
 
-            levelManager.update(dt, clock.time);
+            levelManager.update(dt, mapTime);
 
             player.update(dt, keys);
             switch (player.state) {

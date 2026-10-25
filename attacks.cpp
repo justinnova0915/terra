@@ -58,17 +58,14 @@ void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles)
 }
 
 void Beam::update(float dt, float time) {
-    if (time > duration + start_timestamp || time < start_timestamp) {
+    if (time > duration + start_timestamp || time < start_timestamp - anticipation_time) {
         alive = false;
     } else {
         alive = true;
     }
     
-    SDL_Log(std::to_string(elapsed).c_str());
-    
     if (alive) {
-        if (anticipation_time > 0) {
-            anticipation_time -= dt;
+        if (time < start_timestamp) {
             if (pos_func) {
                 pos = pos_func(0);
             }

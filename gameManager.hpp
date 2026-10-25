@@ -35,6 +35,7 @@ struct GameManager {
 
     Clock clock;
     float dt = 0;
+    float offset = 0.0f;
 
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
