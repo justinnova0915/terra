@@ -14,12 +14,12 @@ struct Audio {
             SDL_Log("SDL Error: %s", SDL_GetError());
             return 1;
         }
-
+        
         if (!MIX_Init()) {
             SDL_Log("SDL Error: %s", SDL_GetError());
             return 1;
         }
-
+        
         MIX_Mixer *mixer = MIX_CreateMixerDevice(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, NULL);
         MIX_Track *track = MIX_CreateTrack(mixer);
 

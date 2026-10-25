@@ -45,7 +45,7 @@ int GameManager::init() {
     
     SDL_SetRenderVSync(renderer, 1);
 
-    if (!audio.init()) {
+    if (audio.init()) {
         return 1;
     }
     
