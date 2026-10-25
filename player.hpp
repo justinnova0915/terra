@@ -9,6 +9,9 @@ struct Player {
     float w = 20;
     float l = 20;
 
+    float default_x = 100;
+    float default_y = 100;
+
     SDL_Color color = {88, 180, 219, 255};
 
     float speed = 200;

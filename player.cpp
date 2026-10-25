@@ -70,5 +70,7 @@ void Player::reset() {
     health = 5;
     state = PlayerState::Live;
     cooldownElapsed = 0;
+    x = default_x;
+    y = default_y;
     color = {88, 180, 219, 255};
 }

@@ -35,7 +35,7 @@ inline Emitter spiral{
     .waves = 100,
     .bullet_num = 1,
     .size = 10,
-    .speed = 200,
+    .speed = 200.
     .angle_increment = 0.5,
     .color = {.r=0, .g=0, .b=255, .a=255}
 };
@@ -58,6 +58,12 @@ struct Level {
     std::vector<Beam> beams = {};
 
     float duration = 0;
+
+    void reset() {
+        projectiles.clear();
+        emitters = {bomb, scatter, spiral};
+        beams = {test};
+    }
 };
 
 struct LevelManager {
@@ -67,6 +73,7 @@ struct LevelManager {
 
     void load(int index) {
         levelIndex = index;
+        levels[index].reset();
     }
     
     void update(float dt) {
