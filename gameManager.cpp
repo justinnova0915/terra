@@ -83,9 +83,6 @@ void GameManager::update() {
 
     switch (state) {
         case GameState::Game:
-    
-            SDL_Log("%d", levelManager.finished);
-
             if (player.health <= 0) {
                 state = GameState::Death;
                 audio.pause();

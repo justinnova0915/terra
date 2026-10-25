@@ -57,11 +57,14 @@ void Emitter::update(float dt, std::vector<Projectile> &projectiles) {
 }
 
 void Beam::update(float dt) {
-    if (elapsed > duration || elapsed < start_timestamp) {
+    elapsed += dt;
+    if (elapsed > duration + start_timestamp || elapsed < start_timestamp) {
         alive = false;
     } else {
         alive = true;
     }
+
+    SDL_Log(std::to_string(elapsed).c_str());
 
     if (alive) {
         if (anticipation_time > 0) {
@@ -75,9 +78,7 @@ void Beam::update(float dt) {
     
             current_color = warning_color;
     
-        } else {
-            elapsed += dt;
-    
+        } else {    
             if (pos_func) {
                 pos = pos_func(elapsed);
             }

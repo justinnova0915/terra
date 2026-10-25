@@ -11,6 +11,7 @@ inline Beam test {
     .length = 3000,
     .angle = SDL_PI_F/2.0f,
     .duration = 10.0f,
+    .start_timestamp = 10,
     .anticipation_time = 1,
     .warning_color = {.r = 255, .g = 0, .b = 0, .a = 100},
     .normal_color = {.r = 255, .g = 0, .b = 0, .a = 255},
