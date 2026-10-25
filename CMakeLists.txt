@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 project(game VERSION 0.1 LANGUAGES CXX)
 
-find_package(SDL3 REQUIRED)
+find_package(SDL3 QUIET)
 
 if(NOT SDL3_FOUND)
     message(STATUS "SDL3 not found locally; fetching from GitHub...")
