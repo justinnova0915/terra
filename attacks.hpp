@@ -28,6 +28,8 @@ struct Emitter {
     int bullet_num = 0;
     float size = 0;
 
+    float start_timestamp = 0;
+
     float speed = 0;
 
     float elapsed = 0;
@@ -54,6 +56,8 @@ struct Beam {
     float angle = 0;
     float elapsed = 0;
     float duration = 0;
+
+    float start_timestamp = 0;
 
     float anticipation_time = 0;
     SDL_Color warning_color = {};

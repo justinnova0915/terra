@@ -10,6 +10,9 @@ void Projectile::update(float dt) {
 }
 
 void Projectile::render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
+    if (!alive) {
+        return;
+    }
     SDL_SetTextureColorMod(bullet_texture, color.r, color.g, color.b);
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     const SDL_FRect projectile_circle = {pos.x-r, pos.y-r, r*2, r*2};
@@ -19,12 +22,16 @@ void Projectile::render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
 
 void Emitter::update(float dt, std::vector<Projectile> &projectiles) {
     elapsed += dt;
-    if (elapsed > interval) {
+
+    if (elapsed < start_timestamp || waves == 0) {
+        alive = false;
+    } else {
+        alive = true;
+    }
+
+    if (alive && elapsed > interval) {
         elapsed = 0;
         waves -= 1;
-        if (waves == 0) {
-            alive = false;
-        }
 
         if (pos_func) {
             pos = pos_func(waves); 
@@ -46,41 +53,51 @@ void Emitter::update(float dt, std::vector<Projectile> &projectiles) {
             });
         }
     }
+
 }
 
 void Beam::update(float dt) {
-    if (anticipation_time > 0) {
-        anticipation_time -= dt;
-        if (pos_func) {
-            pos = pos_func(0);
-        }
-        if (ang_func) {
-            angle = ang_func(0);
-        }
-
-        current_color = warning_color;
-
+    if (elapsed > duration || elapsed < start_timestamp) {
+        alive = false;
     } else {
-        elapsed += dt;
+        alive = true;
+    }
 
-        if (elapsed > duration) {
-            alive = false;
+    if (alive) {
+        if (anticipation_time > 0) {
+            anticipation_time -= dt;
+            if (pos_func) {
+                pos = pos_func(0);
+            }
+            if (ang_func) {
+                angle = ang_func(0);
+            }
+    
+            current_color = warning_color;
+    
+        } else {
+            elapsed += dt;
+    
+            if (pos_func) {
+                pos = pos_func(elapsed);
+            }
+            if (ang_func) {
+                angle = ang_func(elapsed); 
+            }
+            if (len_func) {
+                length = len_func(elapsed);
+            }
+    
+            current_color = normal_color;
         }
-        if (pos_func) {
-            pos = pos_func(elapsed);
-        }
-        if (ang_func) {
-            angle = ang_func(elapsed); 
-        }
-        if (len_func) {
-            length = len_func(elapsed);
-        }
-
-        current_color = normal_color;
     }
 }
 
 void Beam::render(SDL_Renderer* renderer) {
+
+    if (!alive) {
+        return;
+    }
     
     float Fx = SDL_cos(angle) * length;
     float Fy = SDL_sin(angle) * length;

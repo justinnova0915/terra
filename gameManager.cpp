@@ -54,9 +54,7 @@ int GameManager::init() {
 void GameManager::reset() {
     clock.reset();
     player.reset();
-    projectiles.clear();
-    emitters = {bomb, scatter, spiral};
-    beams = {test};
+    levelManager.load(0);
 }
 
 void GameManager::get_events() {
@@ -85,40 +83,12 @@ void GameManager::update() {
                 state = GameState::Death;
             }
 
-            for (int i = 0; i < projectiles.size();) {
-                if (!projectiles[i].alive) {
-                    projectiles[i] = *(projectiles.end()-1);
-                    projectiles.pop_back();
-                } else {
-                    projectiles[i].update(dt);
-                    i++;
-                }
-            }
-            
-            for (int i = 0; i < emitters.size();) {
-                if (!emitters[i].alive) {
-                    emitters[i] = *(emitters.end()-1);
-                    emitters.pop_back();
-                } else {
-                    emitters[i].update(dt, projectiles);
-                    i++;
-                }
-            }
-            
-            for (int i = 0; i < beams.size();) {
-                if (!beams[i].alive) {
-                    beams[i] = *(beams.end()-1);
-                    beams.pop_back();
-                } else {
-                    beams[i].update(dt);
-                    i++;
-                }
-            }
+            levelManager.update(dt);
 
             player.update(dt, keys);
             switch (player.state) {
                 case Player::PlayerState::Live:
-                    if (Collider::update(player, projectiles, beams)) {
+                    if (Collider::update(player, levelManager.levels[levelManager.levelIndex].projectiles, levelManager.levels[levelManager.levelIndex].beams)) {
                         player.on_hit();
                     }
                     break;
@@ -134,14 +104,8 @@ void GameManager::render() {
     SDL_RenderClear(renderer);
     
     player.render(renderer);
-    
-    for (int i = 0; i < projectiles.size(); i++) {
-        projectiles[i].render(renderer, bullet_texture);
-    }
-    
-    for (int i = 0; i < beams.size(); i++) {
-        beams[i].render(renderer);
-    }
+
+    levelManager.render(renderer, bullet_texture);
     
     if (state == GameState::Death) {
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 80);
