@@ -24,7 +24,7 @@ if(NOT SDL3_mixer_FOUND)
     set(SDL3MIXER_VENDORED ON CACHE BOOL "" FORCE)
 
     FetchContent_Declare(
-        SDL3
+        SDL3_mixer
         GIT_REPOSITORY https://github.com/libsdl-org/SDL_mixer
         GIT_TAG        main
         GIT_SHALLOW    TRUE
@@ -63,7 +63,7 @@ add_custom_command(TARGET main POST_BUILD
 )
 
 add_custom_target(release_zip
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3::SDL3> ${CMAKE_CURRENT_BINARY_DIR}/libSDL3.so.0
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3::SDL3> ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_NAME:SDL3::SDL3>
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3_mixer::SDL3_mixer> ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_NAME:SDL3_mixer::SDL3_mixer>
     COMMAND ${CMAKE_COMMAND} -E tar "cf" "Release-V0.1.2-Alpha-linux-x86_64.zip" --format=zip -- main libSDL3.so.0 $<TARGET_FILE_NAME:SDL3_mixer::SDL3_mixer> Assets
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
