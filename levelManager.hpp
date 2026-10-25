@@ -1,8 +1,9 @@
 #pragma once
 
-#include <vector>
-
 #include "attacks.hpp"
+
+#include <vector>
+#include <SDL3_mixer/SDL_mixer.h>
 
 inline Beam test {
     .pos = {1000, 500},
@@ -59,6 +60,8 @@ struct Level {
 
     float duration = 0;
 
+    std::string path;
+
     void reset();
 };
 
@@ -67,8 +70,8 @@ struct LevelManager {
     int levelIndex;
     float elapsed;
   
-    std::vector<Level> levels = {{{bomb, scatter, spiral}, {}, {test}, 100.0f}};
-  
+    std::vector<Level> levels = {{{bomb, scatter, spiral}, {}, {test}, 100.0f, "./Assets/Chronomia.mp3"}};
+
     void load(int index);
     
     void update(float dt);

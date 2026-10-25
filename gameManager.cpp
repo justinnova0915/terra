@@ -1,5 +1,4 @@
 #include "gameManager.hpp"
-#include <iostream>
 
 float Clock::tick() {
     float now = SDL_GetTicksNS();
@@ -14,7 +13,7 @@ void Clock::reset() {
 
 
 int GameManager::init() {
-    if(!SDL_Init(SDL_INIT_VIDEO)) {
+    if (!SDL_Init(SDL_INIT_VIDEO)) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         return 1;
     }
@@ -45,6 +44,10 @@ int GameManager::init() {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     
     SDL_SetRenderVSync(renderer, 1);
+
+    if (!audio.init()) {
+        return 1;
+    }
     
     reset();
 
@@ -55,6 +58,8 @@ void GameManager::reset() {
     clock.reset();
     player.reset();
     levelManager.load(0);
+    audio.load_song(levelManager.levels[levelManager.levelIndex].path);
+    audio.play();
 }
 
 void GameManager::get_events() {
@@ -78,13 +83,15 @@ void GameManager::update() {
 
     switch (state) {
         case GameState::Game:
-
+    
             SDL_Log("%d", levelManager.finished);
 
             if (player.health <= 0) {
                 state = GameState::Death;
+                audio.pause();
             } else if (levelManager.finished) {
                 state = GameState::Clear;
+                audio.pause();
             }
 
             levelManager.update(dt);

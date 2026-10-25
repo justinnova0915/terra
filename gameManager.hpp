@@ -6,9 +6,11 @@
 #include "attacks.hpp"
 #include "collider.hpp"
 #include "levelManager.hpp"
+#include "audio.hpp"
 
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
+#include <SDL3_mixer/SDL_mixer.h>
 #include <string>
 #include <vector>
 
@@ -44,6 +46,8 @@ struct GameManager {
     Player player;
 
     SDL_Texture* bullet_texture = nullptr;
+
+    Audio audio = {};
 
     bool running = true;
 
