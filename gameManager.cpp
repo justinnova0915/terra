@@ -1,5 +1,5 @@
 #include "gameManager.hpp"
-
+#include <iostream>
 
 float Clock::tick() {
     float now = SDL_GetTicksNS();
@@ -64,7 +64,7 @@ void GameManager::get_events() {
         }
 
         if (event.type == SDL_EVENT_KEY_DOWN) {
-            if (state == GameState::Death && event.key.key == SDLK_R) {
+            if ((state == GameState::Death || state == GameState::Clear) && event.key.key == SDLK_R) {
                 reset();
                 state = GameState::Game;
             }
@@ -79,8 +79,12 @@ void GameManager::update() {
     switch (state) {
         case GameState::Game:
 
+            SDL_Log("%d", levelManager.finished);
+
             if (player.health <= 0) {
                 state = GameState::Death;
+            } else if (levelManager.finished) {
+                state = GameState::Clear;
             }
 
             levelManager.update(dt);
@@ -96,6 +100,8 @@ void GameManager::update() {
                     break;
             }
             break;
+        case GameState::Clear:
+            break;
     }
 }
 
@@ -109,6 +115,9 @@ void GameManager::render() {
     
     if (state == GameState::Death) {
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 80);
+        SDL_RenderFillRect(renderer, nullptr);
+    } else if (state == GameState::Clear) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 255, 80);
         SDL_RenderFillRect(renderer, nullptr);
     }
     

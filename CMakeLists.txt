@@ -26,6 +26,7 @@ add_executable(
     attacks.cpp 
     collider.cpp
     gameManager.cpp
+    levelManager.cpp
 )
 
 target_compile_features(main PRIVATE cxx_std_20)

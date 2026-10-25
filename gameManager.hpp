@@ -27,7 +27,8 @@ struct GameManager {
         Game,
         Menu,
         Death,
-        Quit
+        Quit,
+        Clear
     };
 
     Clock clock;
