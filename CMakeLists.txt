@@ -32,7 +32,7 @@ if(NOT SDL3_mixer_FOUND)
 
     FetchContent_Declare(
         SDL3_mixer
-        GIT_REPOSITORY https://github.com/libsdl-org/SDL3_mixer.git
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_mixer.git
         GIT_TAG        main
         GIT_SHALLOW    TRUE
         GIT_PROGRESS   TRUE
