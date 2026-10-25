@@ -32,8 +32,6 @@ if(NOT SDL3_mixer_FOUND)
     FetchContent_MakeAvailable(SDL3_mixer)
 endif()
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/libs/json ${CMAKE_BINARY_DIR}/json)
-
 add_executable(
     main 
     main.cpp 
@@ -51,7 +49,6 @@ target_compile_features(main PRIVATE cxx_std_20)
 target_link_libraries(main PRIVATE 
     SDL3::SDL3
     SDL3_mixer::SDL3_mixer
-    nlohmann_json::nlohmann_json
 )
 
 set_target_properties(main PROPERTIES BUILD_RPATH "$ORIGIN")
