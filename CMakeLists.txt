@@ -21,13 +21,20 @@ if(NOT SDL3_mixer_FOUND)
     message(STATUS "SDL3_mixer not found locally; fetching from GitHub...")
     include(FetchContent)
 
-    set(SDL3MIXER_VENDORED ON CACHE BOOL "" FORCE)
+    set(SDLMIXER_VENDORED ON CACHE BOOL "" FORCE)
+
+    set(SDLMIXER_FLAC      OFF CACHE BOOL "" FORCE)
+    set(SDLMIXER_MOD       OFF CACHE BOOL "" FORCE)
+    set(SDLMIXER_MP3       OFF CACHE BOOL "" FORCE)
+    set(SDLMIXER_MIDI      OFF CACHE BOOL "" FORCE)
+    set(SDLMIXER_WAVPACK   OFF CACHE BOOL "" FORCE)
 
     FetchContent_Declare(
         SDL3_mixer
-        GIT_REPOSITORY https://github.com/libsdl-org/SDL_mixer
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL3_mixer.git
         GIT_TAG        main
         GIT_SHALLOW    TRUE
+        GIT_PROGRESS   TRUE
     )
     FetchContent_MakeAvailable(SDL3_mixer)
 endif()
