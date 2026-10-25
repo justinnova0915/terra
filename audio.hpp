@@ -7,6 +7,8 @@ struct Audio {
 
     MIX_Mixer *mixer = nullptr;
     MIX_Track *track = nullptr;
+    MIX_Audio* music = nullptr;
+
 
 
     bool init() {
@@ -20,14 +22,14 @@ struct Audio {
             return 1;
         }
         
-        MIX_Mixer *mixer = MIX_CreateMixerDevice(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, NULL);
-        MIX_Track *track = MIX_CreateTrack(mixer);
+        mixer = MIX_CreateMixerDevice(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, NULL);
+        track = MIX_CreateTrack(mixer);
 
         return 0;
     }
 
     bool load_song(std::string path) {
-        MIX_Audio* music = MIX_LoadAudio(mixer, path.c_str(), false);
+        music = MIX_LoadAudio(mixer, path.c_str(), false);
         if (!music) {
             return 1;
         } 
