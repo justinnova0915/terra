@@ -11,7 +11,7 @@ void LevelManager::load(int index) {
     reset();
 }
 
-void LevelManager::update(float dt) {
+void LevelManager::update(float dt, float time) {
     Level& currentLevel = levels[levelIndex];
     elapsed += dt;
 
@@ -30,11 +30,11 @@ void LevelManager::update(float dt) {
     }
     
     for (int i = 0; i < currentLevel.emitters.size(); i++) {
-        currentLevel.emitters[i].update(dt, currentLevel.projectiles);
+        currentLevel.emitters[i].update(dt, time, currentLevel.projectiles);
     }
     
     for (int i = 0; i < currentLevel.beams.size(); i++) {
-        currentLevel.beams[i].update(dt);
+        currentLevel.beams[i].update(dt, time);
     }
 }
 

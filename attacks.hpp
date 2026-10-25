@@ -42,11 +42,9 @@ struct Emitter {
     std::function<SDL_FPoint(int wave)> pos_func = nullptr;
     std::function<float(int wave)> ang_func = nullptr;
 
-
     float alive = true;
 
-
-    void update(float dt, std::vector<Projectile> &projectiles);
+    void update(float dt, float time, std::vector<Projectile> &projectiles);
 };
 
 struct Beam {
@@ -72,7 +70,7 @@ struct Beam {
 
     bool alive = true;
 
-    void update(float dt);
+    void update(float dt, float time);
 
     void render(SDL_Renderer* renderer);
 };

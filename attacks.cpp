@@ -20,52 +20,52 @@ void Projectile::render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
 }
 
 
-void Emitter::update(float dt, std::vector<Projectile> &projectiles) {
-    elapsed += dt;
-
-    if (elapsed < start_timestamp || waves == 0) {
+void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles) {
+    
+    if (time < start_timestamp || waves == 0) {
         alive = false;
     } else {
         alive = true;
     }
-
-    if (alive && elapsed > interval) {
-        elapsed = 0;
-        waves -= 1;
-
-        if (pos_func) {
-            pos = pos_func(waves); 
-        }
-        if (ang_func) {
-            angle = ang_func(waves);
-        }
-
-        angle += angle_increment;
-
-        for (int i = 0; i < bullet_num; i++) {
-            projectiles.push_back(Projectile {
-                .pos = pos,
-                .r = size,
-                .theta = bullet_num > 1 ? i*(angle_spread/(bullet_num-1)) - angle_spread/2 + angle : angle,
-                .color = color,
-                .speed = speed,
-                .alive = true
-            });
+    
+    if (alive) {
+        elapsed += dt;
+        if (elapsed > interval) {
+            elapsed = 0;
+            waves -= 1;
+            
+            if (pos_func) {
+                pos = pos_func(waves); 
+            }
+            if (ang_func) {
+                angle = ang_func(waves);
+            }
+            
+            angle += angle_increment;
+            
+            for (int i = 0; i < bullet_num; i++) {
+                    projectiles.push_back(Projectile {
+                    .pos = pos,
+                    .r = size,
+                    .theta = bullet_num > 1 ? i*(angle_spread/(bullet_num-1)) - angle_spread/2 + angle : angle,
+                    .color = color,
+                    .speed = speed,
+                    .alive = true
+                });
+            }
         }
     }
-
 }
 
-void Beam::update(float dt) {
-    elapsed += dt;
-    if (elapsed > duration + start_timestamp || elapsed < start_timestamp) {
+void Beam::update(float dt, float time) {
+    if (time > duration + start_timestamp || time < start_timestamp) {
         alive = false;
     } else {
         alive = true;
     }
-
+    
     SDL_Log(std::to_string(elapsed).c_str());
-
+    
     if (alive) {
         if (anticipation_time > 0) {
             anticipation_time -= dt;
@@ -75,10 +75,12 @@ void Beam::update(float dt) {
             if (ang_func) {
                 angle = ang_func(0);
             }
-    
+            
             current_color = warning_color;
-    
+            
         } else {    
+            elapsed += dt;
+
             if (pos_func) {
                 pos = pos_func(elapsed);
             }

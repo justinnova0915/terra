@@ -75,7 +75,7 @@ struct LevelManager {
 
     void load(int index);
     
-    void update(float dt);
+    void update(float dt, float time);
   
     void render(SDL_Renderer *renderer, SDL_Texture *bullet_texture);
   

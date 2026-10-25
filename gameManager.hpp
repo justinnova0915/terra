@@ -15,7 +15,7 @@
 #include <vector>
 
 struct Clock {
-
+    float time = 0;
     float last = SDL_GetTicksNS();
 
     float tick();

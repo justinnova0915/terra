@@ -3,6 +3,7 @@
 float Clock::tick() {
     float now = SDL_GetTicksNS();
     float dt = (now - last)/1.0e9f;
+    time += dt;
     last = now;
     return dt;
 }
@@ -91,7 +92,7 @@ void GameManager::update() {
                 audio.pause();
             }
 
-            levelManager.update(dt);
+            levelManager.update(dt, clock.time);
 
             player.update(dt, keys);
             switch (player.state) {
