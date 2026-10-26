@@ -19,7 +19,7 @@ if(NOT SDL3_FOUND)
 endif()
 
 if(NOT SDL3_mixer_FOUND)
-    message(STATUS "SDL3_mixer not found locally; fetching from GitHub...")
+    message(STATUS "SDL3_mixer not found locally; fetching from GitHub... (Takes a while)")
     include(FetchContent)
 
     set(SDLMIXER_VENDORED ON CACHE BOOL "" FORCE)
