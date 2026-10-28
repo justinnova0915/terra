@@ -14,17 +14,8 @@ void Clock::reset() {
 }
 
 
-int GameManager::init() {
-    if (!SDL_Init(SDL_INIT_VIDEO)) {
-        SDL_Log("SDL Error: %s", SDL_GetError());
-        return 1;
-    }
-    
-    if (!SDL_CreateWindowAndRenderer("game", Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT, 0, &window, &renderer)) {
-        SDL_Log("SDL Window Creation Error: %s", SDL_GetError());
-        return 1;
-    }
-    
+int GameManager::init(SDL_Renderer* r) {
+    renderer = r;
     std::string img_path = Helper::get_resource_path("Assets/images.bmp");    
     SDL_Surface* raw_bmp = SDL_LoadBMP(img_path.c_str());
     if (!raw_bmp) {
@@ -43,15 +34,11 @@ int GameManager::init() {
     bullet_texture = SDL_CreateTextureFromSurface(renderer, bullet_bmp);
     SDL_DestroySurface(bullet_bmp);
     SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     
-    SDL_SetRenderVSync(renderer, 1);
 
     if (audio.init()) {
         return 1;
     }
-    
-    reset();
 
     return 0;
 }
@@ -129,8 +116,4 @@ void GameManager::render() {
 
 void GameManager::quit() {
     SDL_DestroyTexture(bullet_texture);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-
-    SDL_Quit();
 }

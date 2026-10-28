@@ -36,7 +36,6 @@ struct GameManager {
     float dt = 0;
     float offset = 0.0f;
 
-    SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
 
     GameState state = GameState::Game;
@@ -50,7 +49,7 @@ struct GameManager {
 
     bool running = true;
 
-    int init();
+    int init(SDL_Renderer* r);
 
     void reset();
 

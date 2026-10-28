@@ -1,5 +1,6 @@
 #include "gameManager.hpp"
 #include "menuManager.hpp"
+#include "audio.hpp"
 
 enum class State {
     Menu,
@@ -11,10 +12,45 @@ State state = State::Menu;
 
 GameManager game_manager;
 MenuManager menu_manager;
+Audio audio;
+SDL_Window* window;
+SDL_Renderer* renderer;
+
+int init() {
+    if (!SDL_Init(SDL_INIT_VIDEO)) {
+        SDL_Log("SDL Error: %s", SDL_GetError());
+        return 1;
+    }
+    
+    if (!SDL_CreateWindowAndRenderer("game", Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT, 0, &window, &renderer)) {
+        SDL_Log("SDL Window Creation Error: %s", SDL_GetError());
+        return 1;
+    }
+
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderVSync(renderer, 1);
+
+    if (audio.init()) {
+        return 1;
+    }
+    return 0;
+}
+
+void quit() {
+    game_manager.quit();
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+
+    SDL_Quit();
+}
 
 int main(int argc, char* argv[]) {
     
-    if (game_manager.init()) {
+    if (init()) {
+        return 1;
+    }
+
+    if (game_manager.init(renderer)) {
         return 1;
     }
 
@@ -45,13 +81,14 @@ int main(int argc, char* argv[]) {
         } else if (state == State::Menu) {
             menu_manager.update();
             if (menu_manager.play) {
+                game_manager.reset();
                 state = State::Game;
             }
             menu_manager.render(game_manager.renderer);
         }
     }
 
-    game_manager.quit();
+    quit();
 
     return 0;
 }
