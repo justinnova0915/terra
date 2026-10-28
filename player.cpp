@@ -67,7 +67,7 @@ void Player::on_hit() {
 }
 
 void Player::reset() {
-    health = 5;
+    health = 50000000;
     state = PlayerState::Live;
     cooldownElapsed = 0;
     x = default_x;

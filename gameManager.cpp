@@ -64,17 +64,11 @@ void GameManager::reset() {
     clock.reset();
 }
 
-void GameManager::get_events() {
-    while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_EVENT_QUIT) {
-            state = GameState::Quit;
-        }
-
-        if (event.type == SDL_EVENT_KEY_DOWN) {
-            if ((state == GameState::Death || state == GameState::Clear) && event.key.key == SDLK_R) {
-                reset();
-                state = GameState::Game;
-            }
+void GameManager::get_event(SDL_Event event) {
+    if (event.type == SDL_EVENT_KEY_DOWN) {
+        if ((state == GameState::Death || state == GameState::Clear) && event.key.key == SDLK_R) {
+            reset();
+            state = GameState::Game;
         }
     }
 }

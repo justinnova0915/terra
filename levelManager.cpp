@@ -30,7 +30,7 @@ void LevelManager::update(float dt, float time) {
     }
     
     for (int i = 0; i < currentLevel.emitters.size(); i++) {
-        currentLevel.emitters[i].update(dt, time, currentLevel.projectiles);
+        currentLevel.emitters[i].update(dt, time-0.3f, currentLevel.projectiles);
     }
     
     for (int i = 0; i < currentLevel.beams.size(); i++) {

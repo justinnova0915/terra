@@ -47,7 +47,7 @@ namespace Collider {
 
         for (int i = 0; i < beams.size(); i++) {
 
-            if (beams[i].anticipation_time > 0) {
+            if (!beams[i].alive) {
                 continue;
             }
 

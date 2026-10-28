@@ -29,7 +29,6 @@ struct GameManager {
         Game,
         Menu,
         Death,
-        Quit,
         Clear
     };
 
@@ -40,7 +39,6 @@ struct GameManager {
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
 
-    SDL_Event event;
     GameState state = GameState::Game;
 
     LevelManager levelManager;
@@ -56,7 +54,7 @@ struct GameManager {
 
     void reset();
 
-    void get_events();
+    void get_event(SDL_Event event);
 
     void update();
 
