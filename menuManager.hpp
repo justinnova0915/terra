@@ -105,6 +105,9 @@ struct MenuManager {
     }
 
     void get_event(SDL_Event event) {
+        if (event.type == SDL_EVENT_MOUSE_MOTION) {
+            mouse = {event.button.x, event.button.y};
+        }
         if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN && event.button.button == SDL_BUTTON_LEFT) {
             mouse = {event.button.x, event.button.y};
             screens[currentScreen].handle_clicks(mouse);
@@ -116,6 +119,9 @@ struct MenuManager {
     }
 
     void render(SDL_Renderer* renderer) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
         screens[currentScreen].render(renderer);
+        SDL_RenderPresent(renderer);
     }
 };
