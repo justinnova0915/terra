@@ -38,8 +38,9 @@ int init() {
 
 void quit() {
     game_manager.quit();
-    SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    audio.quit();
 
     SDL_Quit();
 }
@@ -54,7 +55,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    if (menu_manager.init()) {
+    if (menu_manager.init(renderer)) {
         return 1;
     }
 
@@ -83,8 +84,9 @@ int main(int argc, char* argv[]) {
             if (menu_manager.play) {
                 game_manager.reset();
                 state = State::Game;
+                menu_manager.play = false;
             }
-            menu_manager.render(game_manager.renderer);
+            menu_manager.render();
         }
     }
 

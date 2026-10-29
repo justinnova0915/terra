@@ -34,11 +34,6 @@ int GameManager::init(SDL_Renderer* r) {
     bullet_texture = SDL_CreateTextureFromSurface(renderer, bullet_bmp);
     SDL_DestroySurface(bullet_bmp);
     SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
-    
-
-    if (audio.init()) {
-        return 1;
-    }
 
     return 0;
 }

@@ -44,3 +44,9 @@ void Audio::pause() {
 void Audio::resume() {
     MIX_ResumeTrack(track);
 }
+
+void Audio::quit() {
+    MIX_DestroyTrack(track);
+    MIX_DestroyMixer(mixer);
+    MIX_Quit();
+}

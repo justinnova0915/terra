@@ -18,4 +18,6 @@ struct Audio {
     void pause();
 
     void resume();
+
+    void quit();
 };

@@ -1,3 +1,5 @@
+#include "font.hpp"
+
 #include <functional>
 #include <SDL3/SDL.h>
 #include <vector>
@@ -21,9 +23,14 @@ struct Button {
     bool pressed;
     bool hover;
 
+    TTF_Text* textObject = nullptr;
+
     std::function<void()> onPressed;
 
     void render(SDL_Renderer* renderer) {
+        int w, h;
+        TTF_GetTextSize(textObject, &w, &h);
+        TTF_DrawRendererText(textObject, normal.rect.x + (normal.rect.w - w)/2, normal.rect.y + (normal.rect.h - h)/2);
         if (hover) {
             SDL_SetRenderDrawColor(renderer, hovered.color.r, hovered.color.g, hovered.color.b, hovered.color.a);
             SDL_RenderFillRect(renderer, &hovered.rect);
@@ -70,6 +77,9 @@ struct Screen {
 
 
 struct MenuManager {
+
+    Text text;
+    
     Screen logo {
         .buttons = {
             Button{
@@ -81,27 +91,62 @@ struct MenuManager {
                     .rect = {400, 200, 400, 200},
                     .color = {0, 0, 255, 255}
                 },
-                .onPressed = [&](){play = true;}
+                .textObject = text.create_text("Start"),
+                .onPressed = [&](){currentScreen = "selection";}
             }
         }
     };
 
-    std::unordered_map<std::string, Screen> screens = {
-        {"logo", logo}
+    Screen selection {
+        .buttons = {
+            Button{
+                .normal = {
+                    .rect = {600, 300, 400, 200},
+                    .color = {255, 0, 0, 255}
+                },
+                .hovered = {
+                    .rect = {600, 300, 400, 200},
+                    .color = {0, 0, 255, 255}
+                },
+                .textObject = text.create_text("Campaign"),
+                .onPressed = [&](){play = true;}
+            },
+
+            Button{
+                .normal = {
+                    .rect = {1100, 300, 400, 200},
+                    .color = {255, 0, 0, 255}
+                },
+                .hovered = {
+                    .rect = {1100, 300, 400, 200},
+                    .color = {0, 0, 255, 255}
+                },
+                .textObject = text.create_text("Custom"),
+                .onPressed = [](){}
+            }
+        }
     };
-
+    
+    std::unordered_map<std::string, Screen> screens = {
+        {"logo", logo},
+        {"selection", selection},
+    };
+    
     std::string currentScreen = "logo";
-
+    
     SDL_FPoint mouse;
-
+    
     bool play = false;
-
+    
+    SDL_Renderer* renderer;
+    
     void load(std::string cur) {
         currentScreen = cur;
     }
-
-    bool init() {
-        return 0;
+    
+    bool init(SDL_Renderer* r) {
+        renderer = r;
+        text.init(renderer);
     }
 
     void get_event(SDL_Event event) {
@@ -118,7 +163,7 @@ struct MenuManager {
         screens[currentScreen].update(mouse);
     }
 
-    void render(SDL_Renderer* renderer) {
+    void render() {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
         screens[currentScreen].render(renderer);
