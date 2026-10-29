@@ -80,59 +80,9 @@ struct MenuManager {
 
     Text text;
     
-    Screen logo {
-        .buttons = {
-            Button{
-                .normal = {
-                    .rect = {400, 200, 400, 200},
-                    .color = {255, 0, 0, 255}
-                },
-                .hovered = {
-                    .rect = {400, 200, 400, 200},
-                    .color = {0, 0, 255, 255}
-                },
-                .textObject = text.create_text("Start"),
-                .onPressed = [&](){currentScreen = "selection";}
-            }
-        }
-    };
+    Screen logo;
 
-    Screen selection {
-        .buttons = {
-            Button{
-                .normal = {
-                    .rect = {600, 300, 400, 200},
-                    .color = {255, 0, 0, 255}
-                },
-                .hovered = {
-                    .rect = {600, 300, 400, 200},
-                    .color = {0, 0, 255, 255}
-                },
-                .textObject = text.create_text("Campaign"),
-                .onPressed = [&](){play = true;}
-            },
-
-            Button{
-                .normal = {
-                    .rect = {1100, 300, 400, 200},
-                    .color = {255, 0, 0, 255}
-                },
-                .hovered = {
-                    .rect = {1100, 300, 400, 200},
-                    .color = {0, 0, 255, 255}
-                },
-                .textObject = text.create_text("Custom"),
-                .onPressed = [](){}
-            }
-        }
-    };
-    
-    std::unordered_map<std::string, Screen> screens = {
-        {"logo", logo},
-        {"selection", selection},
-    };
-    
-    std::string currentScreen = "logo";
+    Screen selection;
     
     SDL_FPoint mouse;
     
@@ -147,7 +97,62 @@ struct MenuManager {
     bool init(SDL_Renderer* r) {
         renderer = r;
         text.init(renderer);
+        logo = {
+            .buttons = {
+                Button{
+                    .normal = {
+                        .rect = {400, 200, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {400, 200, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Start"),
+                    .onPressed = [&](){currentScreen = "selection";}
+                }
+            }
+        };
+
+        selection = {
+            .buttons = {
+                Button{
+                    .normal = {
+                        .rect = {600, 300, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {600, 300, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Campaign"),
+                    .onPressed = [&](){play = true;}
+                },
+
+                Button{
+                    .normal = {
+                        .rect = {1100, 300, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {1100, 300, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Custom"),
+                    .onPressed = [](){}
+                }
+            }
+        };
+
+        return 0;
     }
+
+    std::unordered_map<std::string, Screen> screens = {
+        {"logo", logo},
+        {"selection", selection},
+    };
+    
+    std::string currentScreen = "logo";
 
     void get_event(SDL_Event event) {
         if (event.type == SDL_EVENT_MOUSE_MOTION) {
