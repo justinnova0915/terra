@@ -2,7 +2,7 @@
 
 void Level::reset() {
     projectiles.clear();
-    emitters = chronomia_emitters;
+    emitters = levels;
     beams = chronomia_beams;
 }
 
@@ -11,7 +11,7 @@ void LevelManager::load(int index) {
     reset();
 }
 
-void LevelManager::update(float dt, float time) {
+void LevelManager::update(float dt, float time, SDL_FPoint playerPos) {
     Level& currentLevel = levels[levelIndex];
     elapsed += dt;
 
@@ -30,11 +30,11 @@ void LevelManager::update(float dt, float time) {
     }
     
     for (int i = 0; i < currentLevel.emitters.size(); i++) {
-        currentLevel.emitters[i].update(dt, time-0.3f, currentLevel.projectiles);
+        currentLevel.emitters[i].update(dt, time-0.3f, currentLevel.projectiles, playerPos);
     }
     
     for (int i = 0; i < currentLevel.beams.size(); i++) {
-        currentLevel.beams[i].update(dt, time);
+        currentLevel.beams[i].update(dt, time, playerPos);
     }
 }
 

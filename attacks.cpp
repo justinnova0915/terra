@@ -20,7 +20,7 @@ void Projectile::render(SDL_Renderer* renderer, SDL_Texture* bullet_texture) {
 }
 
 
-void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles) {
+void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles, SDL_FPoint playerPos) {
     
     if (time < start_timestamp || waves == 0) {
         alive = false;
@@ -29,6 +29,9 @@ void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles)
     }
     
     if (alive) {
+        pos = pos_func.update(dt, playerPos);
+        angle = ang_func.update(pos, playerPos, angle, dt);
+
         elapsed += dt;
         if (elapsed > interval) {
             elapsed -= interval;
@@ -36,15 +39,6 @@ void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles)
             if (start_timestamp == 3.094f || start_timestamp == 4.894f) {
                 SDL_Log("emitter fire time=%f start=%f interval=%f waves=%d", time, start_timestamp, interval, waves);
             }
-            
-            if (pos_func) {
-                pos = pos_func(waves); 
-            }
-            if (ang_func) {
-                angle = ang_func(waves);
-            }
-            
-            angle += angle_increment;
             
             for (int i = 0; i < bullet_num; i++) {
                     projectiles.push_back(Projectile {
@@ -60,7 +54,7 @@ void Emitter::update(float dt, float time, std::vector<Projectile> &projectiles)
     }
 }
 
-void Beam::update(float dt, float time) {
+void Beam::update(float dt, float time, SDL_FPoint playerPos) {
     
     if (time < start_timestamp - anticipation_time || time > duration + start_timestamp) {
         alive = false;
@@ -70,24 +64,14 @@ void Beam::update(float dt, float time) {
     
     if (alive) {
         if (time < start_timestamp) {
-            if (pos_func) {
-                pos = pos_func(0);
-            }
-            if (ang_func) {
-                angle = ang_func(0);
-            }
-            
             current_color = warning_color;
             
         } else {    
             elapsed += dt;
 
-            if (pos_func) {
-                pos = pos_func(elapsed);
-            }
-            if (ang_func) {
-                angle = ang_func(elapsed); 
-            }
+            pos = pos_func.update(dt, playerPos);
+            angle = ang_func.update(pos, playerPos, angle, dt);
+
             if (len_func) {
                 length = len_func(elapsed);
             }

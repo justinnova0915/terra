@@ -19,9 +19,6 @@ struct PosFunc {
         Homing
     };
 
-    SDL_FPoint playerPos = {0.0f, 0.0f};
-    float dt = 0.0f;
-
     struct Params {
         Type state = Type::Static;
         SDL_FPoint startPos = {0.0f, 0.0f};
@@ -42,7 +39,7 @@ struct PosFunc {
 
     Params param;
 
-    SDL_FPoint update() {
+    SDL_FPoint update(float dt, SDL_FPoint playerPos) {
 
         param.elapsed += dt;
 
@@ -81,11 +78,6 @@ struct AngFunc {
         Homing,
         Discrete
     };
-    
-    SDL_FPoint pos = {0.0f, 0.0f};
-    SDL_FPoint playerPos = {0.0f, 0.0f};
-    float curAng = 0.0f;
-    float dt = 0.0f;
 
     struct Params {
         Type state = Type::Static;
@@ -105,7 +97,7 @@ struct AngFunc {
 
     Params param;
 
-    float update() {
+    float update(SDL_FPoint pos, SDL_FPoint playerPos, float curAng, float dt) {
 
         param.elapsed += dt;
 
@@ -165,12 +157,12 @@ struct Emitter {
 
     SDL_Color color {.r=0, .g=0, .b=0, .a=0};
 
-    std::function<SDL_FPoint(int wave)> pos_func = nullptr;
-    std::function<float(int wave)> ang_func = nullptr;
+    PosFunc pos_func = {};
+    AngFunc ang_func = {};
 
     bool alive = true;
 
-    void update(float dt, float time, std::vector<Projectile> &projectiles);
+    void update(float dt, float time, std::vector<Projectile> &projectiles, SDL_FPoint playerPos);
 };
 
 struct Beam {
@@ -188,15 +180,15 @@ struct Beam {
     SDL_Color normal_color = {};
 
 
-    std::function<float(float elapsed)> ang_func = nullptr;
-    std::function<SDL_FPoint(float elapsed)> pos_func = nullptr;
+    AngFunc ang_func = {};
+    PosFunc pos_func = {};
     std::function<float(float elapsed)> len_func = nullptr;
 
     SDL_Color current_color = {};
 
     bool alive = true;
 
-    void update(float dt, float time);
+    void update(float dt, float time, SDL_FPoint playerPos);
 
     void render(SDL_Renderer* renderer);
 };

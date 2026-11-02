@@ -99,7 +99,7 @@ struct LevelManager {
         }
     }
     
-    void update(float dt, float time);
+    void update(float dt, float time, SDL_FPoint playerPos);
   
     void render(SDL_Renderer *renderer, SDL_Texture *bullet_texture);
   

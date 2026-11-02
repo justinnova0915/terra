@@ -74,7 +74,7 @@ void GameManager::update() {
                 audio.pause();
             }
 
-            levelManager.update(dt, mapTime);
+            levelManager.update(dt, mapTime, {player.x, player.y});
 
             player.update(dt, keys);
             switch (player.state) {
