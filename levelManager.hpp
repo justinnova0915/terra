@@ -15,6 +15,9 @@ struct Level {
     std::vector<Projectile> projectiles = {};
     std::vector<Beam> beams = {};
 
+    std::vector<Emitter> baseEmitters = {};
+    std::vector<Beam> baseBeams = {};
+
     std::string songsName;
     std::string artist;
     std::string path;
@@ -167,6 +170,7 @@ struct LevelManager {
                     if (beam["pos_func"].get<std::string>() == "static") {
                         b.pos_func.param.state = PosFunc::Type::Static;
                         b.pos_func.param.startPos = b.pos;
+                        b.pos_func.param.pos = b.pos;
                     } else if (beam["pos_func"].get<std::string>() == "linear") {
                         b.pos_func.param.state = PosFunc::Type::Linear;
                         b.pos_func.param.velocity = {
@@ -174,6 +178,7 @@ struct LevelManager {
                             beam["pos_rate_y"].get<float>()
                         };
                         b.pos_func.param.startPos = b.pos;
+                        b.pos_func.param.pos = b.pos;
                     } else if (beam["pos_func"].get<std::string>() == "lerp") {
                         b.pos_func.param.state = PosFunc::Type::Lerp;
                         b.pos_func.param.lerp_end = {
@@ -182,6 +187,7 @@ struct LevelManager {
                         };
                         b.pos_func.param.duration = beam["pos_duration"].get<float>();
                         b.pos_func.param.startPos = b.pos;
+                        b.pos_func.param.pos = b.pos;
                     } else if (beam["pos_func"].get<std::string>() == "orbit") {
                         b.pos_func.param.state = PosFunc::Type::Orbit;
                         b.pos_func.param.orbit_radius = beam["orbit_radius"].get<float>();
@@ -190,14 +196,9 @@ struct LevelManager {
                         b.pos_func.param.duration = beam["orbit_duration"].get<float>();
                         b.pos_func.param.orbit_pingPong = beam["orbit_pingpong"].get<bool>();
                         b.pos_func.param.startPos = b.pos;
-                    } else if (beam["pos_func"].get<std::string>() == "homing") {
-                        b.pos_func.param.state = PosFunc::Type::Homing;
-                        b.pos_func.param.velocity = {
-                            beam["pos_rate_x"].get<float>(),
-                            beam["pos_rate_y"].get<float>()
-                        };
-                        b.pos_func.param.startPos = b.pos;
+                        b.pos_func.param.pos = b.pos;
                     }
+
 
                     if (beam["ang_func"].get<std::string>() == "static") {
                         b.ang_func.param.state = AngFunc::Type::Static;
@@ -225,6 +226,9 @@ struct LevelManager {
 
                     curLevel.beams.push_back(b);
                 }
+
+                curLevel.baseEmitters = curLevel.emitters;
+                curLevel.baseBeams = curLevel.beams;
 
                 levels.push_back(curLevel);
             }

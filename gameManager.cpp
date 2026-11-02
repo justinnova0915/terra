@@ -37,6 +37,8 @@ int GameManager::init(SDL_Renderer* r, Audio a) {
 
     audio = a;
 
+    levelManager.load_level_data("./data/levels");
+    
     return 0;
 }
 

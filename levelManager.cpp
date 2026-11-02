@@ -2,8 +2,8 @@
 
 void Level::reset() {
     projectiles.clear();
-    emitters = levels;
-    beams = chronomia_beams;
+    emitters = baseEmitters;
+    beams = baseBeams;
 }
 
 void LevelManager::load(int index) {
