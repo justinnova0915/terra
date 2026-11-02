@@ -46,11 +46,11 @@ struct GameManager {
 
     SDL_Texture* bullet_texture = nullptr;
 
-    Audio audio = {};
+    Audio audio;
 
     bool running = true;
 
-    int init(SDL_Renderer* r);
+    int init(SDL_Renderer* r, Audio a);
 
     void reset();
 

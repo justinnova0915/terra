@@ -4,6 +4,8 @@ project(game VERSION 0.1 LANGUAGES CXX)
 
 find_package(SDL3 QUIET)
 find_package(SDL3_mixer QUIET)
+find_package(SDL3_ttf QUIET)
+find_package(nlohmann_json 3.11.3 QUIET)
 
 if(NOT SDL3_FOUND)
     message(STATUS "SDL3 not found locally; fetching from GitHub...")
@@ -40,7 +42,6 @@ if(NOT SDL3_mixer_FOUND)
     FetchContent_MakeAvailable(SDL3_mixer)
 endif()
 
-find_package(SDL3_ttf QUIET)
 
 if(NOT SDL3_ttf_FOUND)
     include(FetchContent)
@@ -52,6 +53,18 @@ if(NOT SDL3_ttf_FOUND)
         GIT_PROGRESS   TRUE
     )
     FetchContent_MakeAvailable(SDL_ttf)
+endif()
+
+if(NOT nlohmann_json_FOUND)
+    include(FetchContent)
+    FetchContent_Declare(
+        nlohmann_json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        GIT_TAG        v3.11.3
+        GIT_SHALLOW    TRUE
+        GIT_PROGRESS   TRUE
+    )
+    FetchContent_MakeAvailable(nlohmann_json)
 endif()
 
 
@@ -73,6 +86,7 @@ target_link_libraries(main PRIVATE
     SDL3::SDL3
     SDL3_mixer::SDL3_mixer
     SDL3_ttf::SDL3_ttf
+    nlohmann_json::nlohmann_json
 )
 
 set_target_properties(main PROPERTIES BUILD_RPATH "$ORIGIN")

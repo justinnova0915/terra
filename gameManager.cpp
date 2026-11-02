@@ -14,7 +14,7 @@ void Clock::reset() {
 }
 
 
-int GameManager::init(SDL_Renderer* r) {
+int GameManager::init(SDL_Renderer* r, Audio a) {
     renderer = r;
     std::string img_path = Helper::get_resource_path("Assets/images.bmp");    
     SDL_Surface* raw_bmp = SDL_LoadBMP(img_path.c_str());
@@ -34,6 +34,8 @@ int GameManager::init(SDL_Renderer* r) {
     bullet_texture = SDL_CreateTextureFromSurface(renderer, bullet_bmp);
     SDL_DestroySurface(bullet_bmp);
     SDL_SetTextureBlendMode(bullet_texture, SDL_BLENDMODE_BLEND);
+
+    audio = a;
 
     return 0;
 }

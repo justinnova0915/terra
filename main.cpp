@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    if (game_manager.init(renderer)) {
+    if (game_manager.init(renderer, audio)) {
         return 1;
     }
 

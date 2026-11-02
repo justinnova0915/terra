@@ -28,9 +28,6 @@ struct Button {
     std::function<void()> onPressed;
 
     void render(SDL_Renderer* renderer) {
-        int w, h;
-        TTF_GetTextSize(textObject, &w, &h);
-        TTF_DrawRendererText(textObject, normal.rect.x + (normal.rect.w - w)/2, normal.rect.y + (normal.rect.h - h)/2);
         if (hover) {
             SDL_SetRenderDrawColor(renderer, hovered.color.r, hovered.color.g, hovered.color.b, hovered.color.a);
             SDL_RenderFillRect(renderer, &hovered.rect);
@@ -38,6 +35,9 @@ struct Button {
             SDL_SetRenderDrawColor(renderer, normal.color.r, normal.color.g, normal.color.b, normal.color.a);
             SDL_RenderFillRect(renderer, &normal.rect);
         }
+        int w, h;
+        TTF_GetTextSize(textObject, &w, &h);
+        TTF_DrawRendererText(textObject, normal.rect.x + (normal.rect.w - w)/2, normal.rect.y + (normal.rect.h - h)/2);
     }
 
     bool contains(SDL_FPoint mouse) {
@@ -83,6 +83,10 @@ struct MenuManager {
     Screen logo;
 
     Screen selection;
+    
+    std::unordered_map<std::string, Screen> screens = {};
+    
+    std::string currentScreen = "logo";
     
     SDL_FPoint mouse;
     
@@ -144,15 +148,11 @@ struct MenuManager {
             }
         };
 
+        screens["logo"] = logo;
+        screens["selection"] = selection;
+
         return 0;
     }
-
-    std::unordered_map<std::string, Screen> screens = {
-        {"logo", logo},
-        {"selection", selection},
-    };
-    
-    std::string currentScreen = "logo";
 
     void get_event(SDL_Event event) {
         if (event.type == SDL_EVENT_MOUSE_MOTION) {
