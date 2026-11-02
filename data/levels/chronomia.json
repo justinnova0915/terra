@@ -26,7 +26,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.812,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -49,7 +52,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.477,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -164,7 +170,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.455,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -187,7 +196,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.67,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -210,7 +222,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.501,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -256,7 +271,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.301,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -279,7 +297,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.025,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -302,7 +323,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.432,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -325,7 +349,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.782,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -371,7 +398,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.058,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -417,7 +447,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.368,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -440,7 +473,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.855,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -463,7 +499,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.846,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -486,7 +525,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.32,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -509,7 +551,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.755,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -532,7 +577,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.45,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -555,7 +603,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.614,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -624,7 +675,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.723,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -693,7 +747,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.497,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -716,7 +773,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.046,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -739,7 +799,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.305,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -762,7 +825,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.723,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -785,7 +851,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.582,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -808,7 +877,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.41,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -854,7 +926,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.998,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -877,7 +952,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.095,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -900,7 +978,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.617,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -923,7 +1004,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.779,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -969,7 +1053,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.258,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -992,7 +1079,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.052,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1107,7 +1197,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.062,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1153,7 +1246,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.086,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1199,7 +1295,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.917,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1222,7 +1321,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.986,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1245,7 +1347,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.478,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1268,7 +1373,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.646,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1337,7 +1445,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.642,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1360,7 +1471,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.036,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1383,7 +1497,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.137,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1452,7 +1569,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.695,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1475,7 +1595,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.706,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1498,7 +1621,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.646,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1521,7 +1647,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.768,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -1682,7 +1811,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.426,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1705,7 +1837,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.018,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1728,7 +1863,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.844,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1797,7 +1935,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.858,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1843,7 +1984,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.426,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1866,7 +2010,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.211,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1912,7 +2059,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.343,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1935,7 +2085,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.716,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -1981,7 +2134,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.562,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2004,7 +2160,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.431,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2050,7 +2209,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.422,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2073,7 +2235,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.63,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2096,7 +2261,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.313,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2119,7 +2287,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.712,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2165,7 +2336,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.399,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2188,7 +2362,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.554,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2303,7 +2480,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.807,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2372,7 +2552,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.776,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2395,7 +2578,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.745,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2418,7 +2604,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.147,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2464,7 +2653,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.776,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2487,7 +2679,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.248,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2510,7 +2705,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.109,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2533,7 +2731,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.39,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2648,7 +2849,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.32,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2671,7 +2875,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.742,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2694,7 +2901,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.046,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2901,7 +3111,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.202,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -2993,7 +3206,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.9,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3016,7 +3232,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.304,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3039,7 +3258,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.994,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3062,7 +3284,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.902,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3085,7 +3310,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.214,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3131,7 +3359,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.762,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3154,7 +3385,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.784,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3177,7 +3411,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.581,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3200,7 +3437,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.132,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3223,7 +3463,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.021,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3246,7 +3489,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.838,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3269,7 +3515,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.004,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3292,7 +3541,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.991,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3407,7 +3659,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.905,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3476,7 +3731,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.798,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3545,7 +3803,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.247,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3568,7 +3829,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.46,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3591,7 +3855,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.045,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3660,7 +3927,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.411,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -3959,7 +4229,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.455,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4028,7 +4301,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.074,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4051,7 +4327,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.569,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4120,7 +4399,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.035,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4143,7 +4425,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.943,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4212,7 +4497,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.216,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4235,7 +4523,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.313,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4258,7 +4549,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.38,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4327,7 +4621,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.491,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4350,7 +4647,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.569,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4373,7 +4673,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.826,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4396,7 +4699,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.433,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4419,7 +4725,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.134,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4511,7 +4820,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.146,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4534,7 +4846,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.171,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4557,7 +4872,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.001,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4626,7 +4944,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.854,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4649,7 +4970,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.515,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4672,7 +4996,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.02,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4695,7 +5022,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.591,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4718,7 +5048,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.893,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4741,7 +5074,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.428,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4856,7 +5192,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.473,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4879,7 +5218,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.171,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4902,7 +5244,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.081,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4925,7 +5270,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.831,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4948,7 +5296,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.361,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4971,7 +5322,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.937,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -4994,7 +5348,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.298,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5247,7 +5604,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.939,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5270,7 +5630,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.132,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5293,7 +5656,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.397,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5316,7 +5682,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.989,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5339,7 +5708,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.687,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5362,7 +5734,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.092,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5569,7 +5944,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.648,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5638,7 +6016,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.535,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5661,7 +6042,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.441,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5684,7 +6068,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.838,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5707,7 +6094,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.535,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5730,7 +6120,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.441,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -5753,7 +6146,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.875,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6052,7 +6448,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.103,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6075,7 +6474,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.06,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6098,7 +6500,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.106,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6121,7 +6526,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.262,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6144,7 +6552,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.616,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6167,7 +6578,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.389,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6190,7 +6604,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.264,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6213,7 +6630,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.621,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6236,7 +6656,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.605,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6282,7 +6705,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.389,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6305,7 +6731,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.031,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6328,7 +6757,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.452,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6374,7 +6806,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.557,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6397,7 +6832,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.081,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6420,7 +6858,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.274,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6466,7 +6907,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.656,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6765,7 +7209,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.701,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6811,7 +7258,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.132,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6857,7 +7307,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.652,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6949,7 +7402,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.271,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -6972,7 +7428,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.086,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7133,7 +7592,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.726,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7202,7 +7664,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.07,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7248,7 +7713,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.156,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7363,7 +7831,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.018,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7478,7 +7949,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.429,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7501,7 +7975,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.898,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7616,7 +8093,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.783,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7731,7 +8211,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.869,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7800,7 +8283,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.859,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -7984,7 +8470,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.476,
+      "ang_step": 0.8,
+      "ang_duration": 0.05
     },
     {
       "pos": {
@@ -8053,7 +8542,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.054,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8076,7 +8568,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.859,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8099,7 +8594,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.83,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8122,7 +8620,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.488,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8145,7 +8646,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.058,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8168,7 +8672,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.01,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8191,7 +8698,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.109,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8214,7 +8724,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.033,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8237,7 +8750,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.873,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8260,7 +8776,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.694,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8283,7 +8802,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.496,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8306,7 +8828,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.276,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8329,7 +8854,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.666,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -8352,7 +8880,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.621,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8444,7 +8975,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.593,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8467,7 +9001,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.09,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8674,7 +9211,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.492,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8743,7 +9283,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.136,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8789,7 +9332,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.057,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8858,7 +9404,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.437,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -8904,7 +9453,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.125,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9019,7 +9571,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.777,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9042,7 +9597,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.267,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9111,7 +9669,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.262,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9180,7 +9741,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.646,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9249,7 +9813,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.62,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9318,7 +9885,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.863,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -9387,7 +9957,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.524,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10008,7 +10581,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.878,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10123,7 +10699,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.341,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10146,7 +10725,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.705,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10169,7 +10751,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.889,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10192,7 +10777,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.009,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10215,7 +10803,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.075,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10238,7 +10829,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.482,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10261,7 +10855,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.688,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10330,7 +10927,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.415,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10399,7 +10999,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.35,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10468,7 +11071,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.496,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10537,7 +11143,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.318,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10606,7 +11215,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.101,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10675,7 +11287,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.626,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10744,7 +11359,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.944,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10813,7 +11431,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.822,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -10882,7 +11503,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.647,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11204,7 +11828,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.03,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11227,7 +11854,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.774,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11250,7 +11880,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.743,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11319,7 +11952,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.615,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11342,7 +11978,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.0,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11411,7 +12050,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.457,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11434,7 +12076,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.292,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11457,7 +12102,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.053,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11480,7 +12128,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.371,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -11779,7 +12430,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.651,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12078,7 +12732,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.525,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12193,7 +12850,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.367,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12262,7 +12922,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.979,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12285,7 +12948,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.548,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12354,7 +13020,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.095,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12377,7 +13046,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.953,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12400,7 +13072,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.011,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12492,7 +13167,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.974,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12561,7 +13239,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.068,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12584,7 +13265,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.014,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12699,7 +13383,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.093,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12768,7 +13455,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.496,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12883,7 +13573,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.55,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -12906,7 +13599,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.081,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13021,7 +13717,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.692,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13044,7 +13743,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.899,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13159,7 +13861,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.681,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13251,7 +13956,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.728,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13412,7 +14120,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.186,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13435,7 +14146,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.011,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13504,7 +14218,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.233,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13573,7 +14290,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.439,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13619,7 +14339,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.181,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13665,7 +14388,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.142,
+      "ang_step": 0.5,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -13895,7 +14621,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.398,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -14401,7 +15130,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.07,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
     },
     {
       "pos": {
@@ -14424,7 +15156,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.666,
+      "ang_step": 0.8,
+      "ang_duration": 0.05
     },
     {
       "pos": {
@@ -14447,7 +15182,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.451,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14470,7 +15208,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.15,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14493,7 +15234,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.594,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14562,7 +15306,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.072,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14585,7 +15332,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.282,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14608,7 +15358,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.374,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14677,7 +15430,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.091,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14769,7 +15525,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.102,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14838,7 +15597,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.198,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -14907,7 +15669,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.059,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15022,7 +15787,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.134,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15091,7 +15859,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.452,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15206,7 +15977,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.521,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15229,7 +16003,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.062,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15252,7 +16029,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.256,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15275,7 +16055,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.148,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15298,7 +16081,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.452,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15321,7 +16107,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.388,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15344,7 +16133,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.038,
+      "ang_step": 0.55,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15620,7 +16412,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.794,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15643,7 +16438,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.827,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15919,7 +16717,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.137,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -15942,7 +16743,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.815,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16057,7 +16861,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.811,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16402,7 +17209,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.739,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16471,7 +17281,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.104,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16494,7 +17307,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.835,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16517,7 +17333,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.036,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16770,7 +17589,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.92,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16793,7 +17615,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.247,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16816,7 +17641,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.026,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -16839,7 +17667,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.864,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17000,7 +17831,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.963,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17161,7 +17995,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.121,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17276,7 +18113,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.736,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17391,7 +18231,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.945,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17552,7 +18395,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.645,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17575,7 +18421,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.003,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17782,7 +18631,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.404,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17874,7 +18726,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.731,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -17943,7 +18798,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.249,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18012,7 +18870,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.957,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18035,7 +18896,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.236,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18288,7 +19152,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.299,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18311,7 +19178,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.627,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18334,7 +19204,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.127,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18541,7 +19414,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.881,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18564,7 +19440,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.859,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18817,7 +19696,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.399,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18840,7 +19722,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.516,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18863,7 +19748,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.068,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -18886,7 +19774,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.907,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19093,7 +19984,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.591,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19116,7 +20010,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.204,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19139,7 +20036,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.268,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19346,7 +20246,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.033,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19507,7 +20410,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.809,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19714,7 +20620,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.885,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19737,7 +20646,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.767,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19783,7 +20695,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.992,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19806,7 +20721,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.502,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19829,7 +20747,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.539,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19852,7 +20773,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.167,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19875,7 +20799,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.004,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19898,7 +20825,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.685,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19921,7 +20851,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -3.063,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19944,7 +20877,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.151,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -19967,7 +20903,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.84,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20013,7 +20952,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 1.608,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20059,7 +21001,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.499,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20105,7 +21050,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.15,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20151,7 +21099,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.086,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20174,7 +21125,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.984,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20197,7 +21151,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.241,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20220,7 +21177,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.292,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20243,7 +21203,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.965,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20266,7 +21229,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -0.658,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20335,7 +21301,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.037,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20381,7 +21350,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.731,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20427,7 +21399,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.064,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20473,7 +21448,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.149,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20519,7 +21497,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.344,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20542,7 +21523,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.664,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20565,7 +21549,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.092,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20588,7 +21575,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.576,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20611,7 +21601,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.071,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20634,7 +21627,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.451,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20657,7 +21653,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 3.038,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20680,7 +21679,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.973,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20703,7 +21705,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -2.003,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20726,7 +21731,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.823,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20749,7 +21757,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.66,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20772,7 +21783,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 2.221,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20795,7 +21809,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": -1.293,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20818,7 +21835,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.724,
+      "ang_step": -0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {
@@ -20841,7 +21861,10 @@
         "a": 255
       },
       "pos_func": "static",
-      "ang_func": "static"
+      "ang_func": "discrete",
+      "ang_start": 0.939,
+      "ang_step": 0.6,
+      "ang_duration": 0.08
     },
     {
       "pos": {

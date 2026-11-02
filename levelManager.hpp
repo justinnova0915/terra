@@ -39,13 +39,15 @@ struct LevelManager {
     void load_level_data(std::string folderPath) {
         for (std::filesystem::directory_entry entry:std::filesystem::directory_iterator(folderPath)) {
             if (entry.path().extension() == ".json") {
-                json data = json::parse(entry.path());
+                std::ifstream in(entry.path());
+                json data;
+                in >> data;
 
                 Level curLevel = {
                     .songsName = data["songsName"].get<std::string>(),
                     .artist = data["artist"].get<std::string>(),
                     .path = data["path"].get<std::string>(),
-                    .duration = data["path"].get<float>(),
+                    .duration = data["duration"].get<float>(),
                     .difficulty = data["difficulty"].get<float>()
                 };
 
@@ -53,21 +55,22 @@ struct LevelManager {
                     Emitter e = {
                         .pos = {
                             .x = emitter["pos"]["x"].get<float>(),
-                            .y = emitter["pos"]["x"].get<float>()
+                            .y = emitter["pos"]["y"].get<float>()
                         },
                         .interval = emitter["interval"].get<float>(),
                         .waves = emitter["waves"].get<int>(),
                         .bullet_num = emitter["bullet_num"].get<int>(),
                         .size = emitter["size"].get<float>(),
                         .start_timestamp = emitter["start_timestamp"].get<float>(),
-                        .speed = emitter["pos"]["x"].get<float>(),
+                        .speed = emitter["speed"].get<float>(),
                         .angle = emitter["angle"].get<float>(),
                         .angle_increment = emitter["angle_increment"].get<float>(),
                         .angle_spread = emitter["angle_spread"].get<float>(),
                         .color = {
                             .r = emitter["color"]["r"].get<Uint8>(),
                             .g = emitter["color"]["g"].get<Uint8>(),
-                            .b = emitter["color"]["b"].get<Uint8>()
+                            .b = emitter["color"]["b"].get<Uint8>(),
+                            .a = emitter["color"]["a"].get<Uint8>()
                         },
                     };
 
@@ -145,7 +148,7 @@ struct LevelManager {
                     Beam b = {
                         .pos = {
                             .x = beam["pos"]["x"].get<float>(),
-                            .y = beam["pos"]["x"].get<float>()
+                            .y = beam["pos"]["y"].get<float>()
                         },
                         .width = beam["width"].get<float>(),
                         .length = beam["length"].get<float>(),

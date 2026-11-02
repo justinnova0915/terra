@@ -1,0 +1,572 @@
+{
+  "songsName": "DEBUG Stress Test",
+  "artist": "Debug",
+  "path": "./Assets/songs/Chronomia.mp3",
+  "duration": 90.0,
+  "difficulty": 0.0,
+  "emitters": [
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "interval": 0.2,
+      "waves": 20,
+      "bullet_num": 5,
+      "size": 8.0,
+      "start_timestamp": 3.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 1.2,
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "static"
+    },
+    {
+      "pos": {
+        "x": 200.0,
+        "y": 200.0
+      },
+      "interval": 0.15,
+      "waves": 30,
+      "bullet_num": 3,
+      "size": 8.0,
+      "start_timestamp": 8.0,
+      "speed": 300,
+      "angle": 0.8,
+      "angle_increment": 0.0,
+      "angle_spread": 0.6,
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "linear",
+      "ang_func": "static",
+      "pos_rate_x": 120.0,
+      "pos_rate_y": 60.0
+    },
+    {
+      "pos": {
+        "x": 200.0,
+        "y": 540.0
+      },
+      "interval": 0.15,
+      "waves": 30,
+      "bullet_num": 3,
+      "size": 8.0,
+      "start_timestamp": 14.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.6,
+      "color": {
+        "r": 255,
+        "g": 255,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "lerp",
+      "ang_func": "static",
+      "pos_lerp_end_x": 1720.0,
+      "pos_lerp_end_y": 540.0,
+      "pos_duration": 4.5
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "interval": 0.15,
+      "waves": 30,
+      "bullet_num": 1,
+      "size": 8.0,
+      "start_timestamp": 20.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.0,
+      "color": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "orbit",
+      "ang_func": "static",
+      "orbit_radius": 300.0,
+      "orbit_start_angle": 0.0,
+      "orbit_end_angle": 6.2831853,
+      "orbit_duration": 4.0,
+      "orbit_pingpong": false
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "interval": 0.1,
+      "waves": 40,
+      "bullet_num": 1,
+      "size": 8.0,
+      "start_timestamp": 26.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.0,
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "rotate",
+      "ang_rate": 1.5707963
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 270.0
+      },
+      "interval": 0.15,
+      "waves": 30,
+      "bullet_num": 3,
+      "size": 8.0,
+      "start_timestamp": 32.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.9,
+      "color": {
+        "r": 255,
+        "g": 128,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "oscillate",
+      "ang_start": -0.8,
+      "ang_end": 0.8,
+      "ang_rate": 2.0
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 810.0
+      },
+      "interval": 0.15,
+      "waves": 30,
+      "bullet_num": 3,
+      "size": 8.0,
+      "start_timestamp": 38.0,
+      "speed": 300,
+      "angle": 3.14159,
+      "angle_increment": 0.0,
+      "angle_spread": 0.9,
+      "color": {
+        "r": 128,
+        "g": 0,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "pingpong",
+      "ang_start": 2.5,
+      "ang_end": 3.8,
+      "ang_duration": 2.0
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "interval": 0.1,
+      "waves": 20,
+      "bullet_num": 1,
+      "size": 8.0,
+      "start_timestamp": 44.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.0,
+      "color": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "discrete",
+      "ang_start": -1.0,
+      "ang_step": 0.4,
+      "ang_duration": 0.1
+    },
+    {
+      "pos": {
+        "x": 200.0,
+        "y": 200.0
+      },
+      "interval": 0.12,
+      "waves": 35,
+      "bullet_num": 2,
+      "size": 8.0,
+      "start_timestamp": 50.0,
+      "speed": 350,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.5,
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 128,
+        "a": 255
+      },
+      "pos_func": "linear",
+      "ang_func": "rotate",
+      "pos_rate_x": 100.0,
+      "pos_rate_y": 50.0,
+      "ang_rate": 3.14159
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "interval": 0.15,
+      "waves": 30,
+      "bullet_num": 3,
+      "size": 8.0,
+      "start_timestamp": 56.0,
+      "speed": 300,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 0.6,
+      "color": {
+        "r": 255,
+        "g": 0,
+        "b": 128,
+        "a": 255
+      },
+      "pos_func": "orbit",
+      "ang_func": "oscillate",
+      "orbit_radius": 250.0,
+      "orbit_start_angle": 0.0,
+      "orbit_end_angle": 6.2831853,
+      "orbit_duration": 3.0,
+      "orbit_pingpong": true,
+      "ang_start": -0.5,
+      "ang_end": 0.5,
+      "ang_rate": 3.0
+    },
+    {
+      "pos": {
+        "x": 300.0,
+        "y": 200.0
+      },
+      "interval": 0.05,
+      "waves": 60,
+      "bullet_num": 5,
+      "size": 8.0,
+      "start_timestamp": 80.0,
+      "speed": 400,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 1.5,
+      "color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "rotate",
+      "ang_rate": 2.0
+    },
+    {
+      "pos": {
+        "x": 1620.0,
+        "y": 200.0
+      },
+      "interval": 0.05,
+      "waves": 60,
+      "bullet_num": 5,
+      "size": 8.0,
+      "start_timestamp": 80.0,
+      "speed": 400,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 1.5,
+      "color": {
+        "r": 0,
+        "g": 255,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "rotate",
+      "ang_rate": 2.0
+    },
+    {
+      "pos": {
+        "x": 300.0,
+        "y": 880.0
+      },
+      "interval": 0.05,
+      "waves": 60,
+      "bullet_num": 5,
+      "size": 8.0,
+      "start_timestamp": 80.0,
+      "speed": 400,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 1.5,
+      "color": {
+        "r": 0,
+        "g": 0,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "rotate",
+      "ang_rate": 2.0
+    },
+    {
+      "pos": {
+        "x": 1620.0,
+        "y": 880.0
+      },
+      "interval": 0.05,
+      "waves": 60,
+      "bullet_num": 5,
+      "size": 8.0,
+      "start_timestamp": 80.0,
+      "speed": 400,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 1.5,
+      "color": {
+        "r": 255,
+        "g": 255,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "rotate",
+      "ang_rate": 2.0
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "interval": 0.05,
+      "waves": 60,
+      "bullet_num": 5,
+      "size": 8.0,
+      "start_timestamp": 80.0,
+      "speed": 400,
+      "angle": 0.0,
+      "angle_increment": 0.0,
+      "angle_spread": 1.5,
+      "color": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "rotate",
+      "ang_rate": 2.0
+    }
+  ],
+  "projectiles": [],
+  "beams": [
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "width": 50,
+      "length": 1200,
+      "angle": 1.5707963,
+      "duration": 3.0,
+      "start_timestamp": 62.0,
+      "anticipation_time": 1.0,
+      "warning_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 100
+      },
+      "normal_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "static",
+      "ang_func": "static"
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "width": 50,
+      "length": 3000,
+      "angle": 1.5707963,
+      "duration": 3.0,
+      "start_timestamp": 66.0,
+      "anticipation_time": 1.0,
+      "warning_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 100
+      },
+      "normal_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "linear",
+      "ang_func": "rotate",
+      "pos_rate_x": 192.0,
+      "pos_rate_y": 0.0,
+      "ang_rate": 1.5707963
+    },
+    {
+      "pos": {
+        "x": 200.0,
+        "y": 540.0
+      },
+      "width": 50,
+      "length": 1200,
+      "angle": 0.0,
+      "duration": 4.0,
+      "start_timestamp": 70.0,
+      "anticipation_time": 1.0,
+      "warning_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 100
+      },
+      "normal_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "lerp",
+      "ang_func": "oscillate",
+      "pos_lerp_end_x": 1720.0,
+      "pos_lerp_end_y": 540.0,
+      "pos_duration": 4.0,
+      "ang_start": -0.6,
+      "ang_end": 0.6,
+      "ang_rate": 2.0
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "width": 60,
+      "length": 1000,
+      "angle": 0.0,
+      "duration": 4.0,
+      "start_timestamp": 75.0,
+      "anticipation_time": 1.0,
+      "warning_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 100
+      },
+      "normal_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "orbit",
+      "ang_func": "pingpong",
+      "orbit_radius": 200.0,
+      "orbit_start_angle": 0.0,
+      "orbit_end_angle": 6.2831853,
+      "orbit_duration": 4.0,
+      "orbit_pingpong": false,
+      "ang_start": 0.0,
+      "ang_end": 1.5707963,
+      "ang_duration": 2.0
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "width": 50,
+      "length": 3000,
+      "angle": 1.5707963,
+      "duration": 5.0,
+      "start_timestamp": 80.0,
+      "anticipation_time": 1.0,
+      "warning_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 100
+      },
+      "normal_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "linear",
+      "ang_func": "rotate",
+      "pos_rate_x": 192.0,
+      "pos_rate_y": 0.0,
+      "ang_rate": 1.5707963
+    },
+    {
+      "pos": {
+        "x": 960.0,
+        "y": 540.0
+      },
+      "width": 50,
+      "length": 3000,
+      "angle": 0.0,
+      "duration": 5.0,
+      "start_timestamp": 82.0,
+      "anticipation_time": 1.0,
+      "warning_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 100
+      },
+      "normal_color": {
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+      },
+      "pos_func": "linear",
+      "ang_func": "rotate",
+      "pos_rate_x": -192.0,
+      "pos_rate_y": 0.0,
+      "ang_rate": -1.5707963
+    }
+  ]
+}
