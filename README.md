@@ -36,6 +36,10 @@ cmake --build build
 | Space | Dash |
 | R | restart|
 
+## Credits
+
+Music: "Chronomia" by Lime
+
 ## Status
 
 In development for Hack Club Terra, October 2026 – January 2027.
