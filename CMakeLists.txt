@@ -95,13 +95,16 @@ add_custom_command(TARGET main POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${CMAKE_CURRENT_SOURCE_DIR}/Assets"
         "$<TARGET_FILE_DIR:main>/Assets"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/data"
+        "$<TARGET_FILE_DIR:main>/data"
 )
 
 add_custom_target(release_zip
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3::SDL3> ${CMAKE_CURRENT_BINARY_DIR}/libSDL3.so.0
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3_mixer::SDL3_mixer> ${CMAKE_CURRENT_BINARY_DIR}/libSDL3_mixer.so.0
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:SDL3_ttf::SDL3_ttf> ${CMAKE_CURRENT_BINARY_DIR}/libSDL3_ttf.so.0
-    COMMAND ${CMAKE_COMMAND} -E tar "cf" "Release-V0.1.4-Alpha-linux-x86_64.zip" --format=zip -- main libSDL3.so.0 libSDL3_mixer.so.0 libSDL3_ttf.so.0 Assets
+    COMMAND ${CMAKE_COMMAND} -E tar "cf" "Release-V0.1.4-Alpha-linux-x86_64.zip" --format=zip -- main libSDL3.so.0 libSDL3_mixer.so.0 libSDL3_ttf.so.0 Assets data
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
     DEPENDS main
     COMMENT "Creating release zip"
