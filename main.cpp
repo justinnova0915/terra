@@ -84,6 +84,7 @@ int main(int argc, char* argv[]) {
             if (game_manager.gameResult.action == GameManager::GameResult::Action::Pause) {
                 state = State::Paused;
                 menu_manager.currentScreen = "pause";
+                game_manager.audio.pause();
                 game_manager.gameResult.action = GameManager::GameResult::Action::None;
             } else {
                 game_manager.render();
@@ -106,6 +107,8 @@ int main(int argc, char* argv[]) {
                 menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             } else if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::Unpause) {
                 state = State::Game;
+                game_manager.audio.resume();
+                game_manager.clock.last = SDL_GetTicks();
                 menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             } else if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToMenu) {
                 state == State::Menu;
