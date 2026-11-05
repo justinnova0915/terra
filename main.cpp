@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
             if (game_manager.gameResult.action == GameManager::GameResult::Action::Pause) {
                 state = State::Paused;
                 menu_manager.currentScreen = "pause";
-                game_manager.gameResult.action == GameManager::GameResult::Action::None;
+                game_manager.gameResult.action = GameManager::GameResult::Action::None;
             } else {
                 game_manager.render();
             }
