@@ -42,9 +42,9 @@ int GameManager::init(SDL_Renderer* r, Audio a) {
     return 0;
 }
 
-void GameManager::reset() {
+void GameManager::reset(int song) {
     player.reset();
-    levelManager.load(1);
+    levelManager.load(song);
     audio.load_song(levelManager.levels[levelManager.levelIndex].path);
     audio.play();
     clock.reset();
@@ -53,8 +53,12 @@ void GameManager::reset() {
 void GameManager::get_event(SDL_Event event) {
     if (event.type == SDL_EVENT_KEY_DOWN) {
         if ((state == GameState::Death || state == GameState::Clear) && event.key.key == SDLK_R) {
-            reset();
+            reset(levelManager.levelIndex);
             state = GameState::Game;
+        }
+
+        if (state == GameState::Game && event.key.key == SDLK_ESCAPE) {
+            gameResult.action = GameResult::Action::Pause;
         }
     }
 }
@@ -94,7 +98,7 @@ void GameManager::update() {
     }
 }
 
-void GameManager::render() {
+void GameManager::render_scene() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
@@ -108,8 +112,11 @@ void GameManager::render() {
     } else if (state == GameState::Clear) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 255, 80);
         SDL_RenderFillRect(renderer, nullptr);
-    }
-    
+    }   
+}
+
+void GameManager::render() {
+    render_scene();
     SDL_RenderPresent(renderer);
 }
 

@@ -1,4 +1,5 @@
 #include "font.hpp"
+#include "levelManager.hpp"
 
 #include <functional>
 #include <SDL3/SDL.h>
@@ -83,6 +84,10 @@ struct MenuManager {
     Screen logo;
 
     Screen selection;
+
+    Screen pause;
+
+    Screen songs;
     
     std::unordered_map<std::string, Screen> screens = {};
     
@@ -93,12 +98,27 @@ struct MenuManager {
     bool play = false;
     
     SDL_Renderer* renderer;
-    
+
+
+    struct MenuResult {
+        enum class Action {
+            ToLevel,
+            ToMenu,
+            Unpause,
+            None
+        };
+
+        Action action = Action::None;
+        int curLevel = 0;
+    };
+
+    MenuResult menuResult;
+
     void load(std::string cur) {
         currentScreen = cur;
     }
     
-    bool init(SDL_Renderer* r) {
+    bool init(SDL_Renderer* r, const std::vector<Level>& levels) {
         renderer = r;
         text.init(renderer);
         logo = {
@@ -130,7 +150,7 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Campaign"),
-                    .onPressed = [&](){play = true;}
+                    .onPressed = [&](){currentScreen = "songs";}
                 },
 
                 Button{
@@ -148,8 +168,71 @@ struct MenuManager {
             }
         };
 
+        for (int i = 0; i < levels.size(); i++) {
+            songs.buttons.push_back(Button{
+                Button{
+                    .normal = {
+                        .rect = {10, 100+300*i, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {10, 100+300*i, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text(levels[i].songsName),
+                    .onPressed = [this, i](){
+                        this->menuResult.curLevel = i;
+                        this->menuResult.action = MenuResult::Action::ToLevel;
+                    }
+                }
+            });
+        }
+
+        pause = Screen{
+            .buttons = {
+                Button{
+                    .normal = {
+                        .rect = {1100, 300, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {1100, 300, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Resume"),
+                    .onPressed = [&](){menuResult.action = MenuResult::Action::Unpause;}
+                },
+                Button{
+                    .normal = {
+                        .rect = {600, 300, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {600, 300, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Restart"),
+                    .onPressed = [&](){menuResult.action = MenuResult::Action::ToLevel;}
+                },
+                Button{
+                    .normal = {
+                        .rect = {600, 700, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {600, 700, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Menu"),
+                    .onPressed = [&](){menuResult.action = MenuResult::Action::ToMenu;}
+                }
+            }
+        };
+
         screens["logo"] = logo;
         screens["selection"] = selection;
+        screens["songs"] = songs;
+        screens["pause"] = pause;
 
         return 0;
     }

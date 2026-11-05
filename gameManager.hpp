@@ -37,6 +37,17 @@ struct GameManager {
     float dt = 0;
     float offset = 0.0f;
 
+    struct GameResult {
+        enum class Action {
+            None,
+            Pause
+        };
+
+        Action action = Action::None;
+    };
+
+    GameResult gameResult;
+
     SDL_Renderer* renderer = nullptr;
 
     GameState state = GameState::Game;
@@ -52,11 +63,13 @@ struct GameManager {
 
     int init(SDL_Renderer* r, Audio a);
 
-    void reset();
+    void reset(int song);
 
     void get_event(SDL_Event event);
 
     void update();
+
+    void render_scene();
 
     void render();
 

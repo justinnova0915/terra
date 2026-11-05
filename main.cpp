@@ -5,6 +5,7 @@
 enum class State {
     Menu,
     Game,
+    Paused,
     Quit
 };
 
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    if (menu_manager.init(renderer)) {
+    if (menu_manager.init(renderer, game_manager.levelManager.levels)) {
         return 1;
     }
 
@@ -70,23 +71,51 @@ int main(int argc, char* argv[]) {
             } else {
                 if (state == State::Game) {
                     game_manager.get_event(event);
-                } else if (state == State::Menu) {
+                } else if (state == State::Menu || state == State::Paused) {
                     menu_manager.get_event(event);
                 }
             }
         }
 
+        
         if (state == State::Game) {
             game_manager.update();
-            game_manager.render();
+            
+            if (game_manager.gameResult.action == GameManager::GameResult::Action::Pause) {
+                state = State::Paused;
+                game_manager.gameResult.action == GameManager::GameResult::Action::None;
+            } else {
+                game_manager.render();
+            }
         } else if (state == State::Menu) {
             menu_manager.update();
-            if (menu_manager.play) {
-                game_manager.reset();
+            if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToLevel) {
+                game_manager.reset(menu_manager.menuResult.curLevel);
                 state = State::Game;
-                menu_manager.play = false;
+                menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             }
             menu_manager.render();
+        } else if (state == State::Paused) {
+            menu_manager.update();
+            SDL_Log("%d", static_cast<int>(menu_manager.menuResult.action));
+            
+            if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToLevel) {
+                game_manager.reset(menu_manager.menuResult.curLevel);
+                state = State::Game;
+                menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
+            } else if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::Unpause) {
+                state = State::Game;
+                menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
+            } else if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToMenu) {
+                state == State::Menu;
+                menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
+            }
+
+            game_manager.render_scene();
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 160);
+            SDL_RenderFillRect(renderer, nullptr);
+            menu_manager.render();
+            SDL_RenderPresent(renderer);
         }
     }
 
