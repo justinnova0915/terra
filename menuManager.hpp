@@ -1,3 +1,5 @@
+#pragma once
+
 #include "font.hpp"
 #include "levelManager.hpp"
 
@@ -112,7 +114,12 @@ struct MenuManager {
 
     MenuResult menuResult;
 
-    void load(std::string cur) {
+    void push_screen(std::string cur) {
+        screenStack.push_back(cur);
+    }
+
+    void set_screen(std::string cur) {
+        screenStack.clear();
         screenStack.push_back(cur);
     }
     
@@ -145,7 +152,7 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Start"),
-                    .onPressed = [&](){load("selection");}
+                    .onPressed = [&](){push_screen("selection");}
                 }
             }
         };
@@ -162,7 +169,7 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Campaign"),
-                    .onPressed = [&](){load("songs");}
+                    .onPressed = [&](){push_screen("songs");}
                 },
 
                 Button{
@@ -186,16 +193,17 @@ struct MenuManager {
             songs.buttons.push_back(Button{
                 Button{
                     .normal = {
-                        .rect = {10, 100+300*i, 400, 200},
+                        .rect = {10, 100.0f+300.0f*i, 400, 200},
                         .color = {255, 0, 0, 255}
                     },
                     .hovered = {
-                        .rect = {10, 100+300*i, 400, 200},
+                        .rect = {10, 100.0f+300.0f*i, 400, 200},
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text(levels[i].songsName),
-                    .onPressed = [this, i](){
+                    .onPressed = [&](){
                         this->menuResult.curLevel = i;
+                        this->set_screen("pause");
                         this->menuResult.action = MenuResult::Action::ToLevel;
                     }
                 }
@@ -227,7 +235,10 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Restart"),
-                    .onPressed = [&](){menuResult.action = MenuResult::Action::ToLevel;}
+                    .onPressed = [&](){
+                        set_screen("pause");
+                        menuResult.action = MenuResult::Action::ToLevel;
+                    }
                 },
                 Button{
                     .normal = {
@@ -240,7 +251,7 @@ struct MenuManager {
                     },
                     .textObject = text.create_text("Menu"),
                     .onPressed = [&](){
-                        load("logo");
+                        push_screen("logo");
                         menuResult.action = MenuResult::Action::ToMenu;
                     }
                 }
