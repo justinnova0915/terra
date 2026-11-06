@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
             
             if (game_manager.gameResult.action == GameManager::GameResult::Action::Pause) {
                 state = State::Paused;
-                menu_manager.currentScreen = "pause";
+                menu_manager.load("pause");
                 game_manager.audio.pause();
                 game_manager.gameResult.action = GameManager::GameResult::Action::None;
             } else {
@@ -112,7 +112,6 @@ int main(int argc, char* argv[]) {
                 menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             } else if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToMenu) {
                 state == State::Menu;
-                menu_manager.currentScreen = "selection";
                 menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             }
 

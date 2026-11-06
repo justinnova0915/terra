@@ -80,18 +80,16 @@ struct Screen {
 struct MenuManager {
 
     Text text;
+
+    Button back;
     
     Screen logo;
-
     Screen selection;
-
     Screen pause;
-
     Screen songs;
     
+    std::vector<std::string> screenStack = {"logo"};
     std::unordered_map<std::string, Screen> screens = {};
-    
-    std::string currentScreen = "logo";
     
     SDL_FPoint mouse;
     
@@ -115,12 +113,26 @@ struct MenuManager {
     MenuResult menuResult;
 
     void load(std::string cur) {
-        currentScreen = cur;
+        screenStack.push_back(cur);
     }
     
     bool init(SDL_Renderer* r, const std::vector<Level>& levels) {
         renderer = r;
         text.init(renderer);
+
+        back = Button{
+            .normal = {
+                .rect = {10, 10, 200, 100},
+                .color = {255, 0, 0, 255}
+            },
+            .hovered = {
+                .rect = {10, 10, 200, 100},
+                .color = {0, 0, 255, 255}
+            },
+            .textObject = text.create_text("Back"),
+            .onPressed = [&](){screenStack.pop_back();}
+        };
+
         logo = {
             .buttons = {
                 Button{
@@ -133,7 +145,7 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Start"),
-                    .onPressed = [&](){currentScreen = "selection";}
+                    .onPressed = [&](){load("selection");}
                 }
             }
         };
@@ -150,7 +162,7 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Campaign"),
-                    .onPressed = [&](){currentScreen = "songs";}
+                    .onPressed = [&](){load("songs");}
                 },
 
                 Button{
@@ -164,7 +176,9 @@ struct MenuManager {
                     },
                     .textObject = text.create_text("Custom"),
                     .onPressed = [](){}
-                }
+                },
+                
+                back
             }
         };
 
@@ -187,6 +201,7 @@ struct MenuManager {
                 }
             });
         }
+        songs.buttons.push_back(back);
 
         pause = Screen{
             .buttons = {
@@ -224,7 +239,10 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text("Menu"),
-                    .onPressed = [&](){menuResult.action = MenuResult::Action::ToMenu;}
+                    .onPressed = [&](){
+                        load("logo");
+                        menuResult.action = MenuResult::Action::ToMenu;
+                    }
                 }
             }
         };
@@ -243,18 +261,18 @@ struct MenuManager {
         }
         if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN && event.button.button == SDL_BUTTON_LEFT) {
             mouse = {event.button.x, event.button.y};
-            screens[currentScreen].handle_clicks(mouse);
+            screens[screenStack.back()].handle_clicks(mouse);
         }
     }
 
     void update() {
-        screens[currentScreen].update(mouse);
+        screens[screenStack.back()].update(mouse);
     }
 
     void render() {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
-        screens[currentScreen].render(renderer);
+        screens[screenStack.back()].render(renderer);
         SDL_RenderPresent(renderer);
     }
 };
