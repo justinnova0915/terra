@@ -201,7 +201,7 @@ struct MenuManager {
                         .color = {0, 0, 255, 255}
                     },
                     .textObject = text.create_text(levels[i].songsName),
-                    .onPressed = [&](){
+                    .onPressed = [this, i](){
                         this->menuResult.curLevel = i;
                         this->set_screen("pause");
                         this->menuResult.action = MenuResult::Action::ToLevel;
