@@ -37,6 +37,8 @@ int GameManager::init(SDL_Renderer* r, Audio a) {
 
     audio = a;
 
+    hud.init(r);
+
     levelManager.load_level_data("./data/levels");
     
     return 0;
@@ -84,8 +86,8 @@ void GameManager::update() {
 
             player.update(dt, keys);
 
-            hud.update(HUD::HUDData{levelManager.elapsed/levelManager.levels.back().duration});
-            
+            hud.update(HUD::HUDData{levelManager.elapsed/levelManager.levels[levelManager.levelIndex].duration});
+
             switch (player.state) {
                 case Player::PlayerState::Live:
                     if (Collider::update(player, levelManager.levels[levelManager.levelIndex].projectiles, levelManager.levels[levelManager.levelIndex].beams)) {
@@ -108,6 +110,8 @@ void GameManager::render_scene() {
     player.render(renderer);
 
     levelManager.render(renderer, bullet_texture);
+
+    hud.render();
     
     if (state == GameState::Death) {
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 80);

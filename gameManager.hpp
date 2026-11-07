@@ -32,18 +32,24 @@ struct HUD {
         float songProgress;
     };
 
-    const SDL_FRect box = {0, 0, 1920, 20};
+    HUDData hudData;
+
+    const SDL_FRect box = {0, 0, 1920, 10};
 
     void init(SDL_Renderer* r) {
         renderer = r;
     }
 
-    void update(HUDData hudData) {
+    void update(HUDData h) {
+        hudData = h;
+    }
+
+    void render() {
         SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
         SDL_FRect done = {box.x, box.y, 1920*hudData.songProgress, box.h};
         SDL_RenderFillRect(renderer, &done);
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_FRect notDone = {box.x, 1920*hudData.songProgress, 1920*(1-hudData.songProgress), box.h};
+        SDL_FRect notDone = {box.x+1920*hudData.songProgress, box.y, 1920*(1-hudData.songProgress), box.h};
         SDL_RenderFillRect(renderer, &notDone);
     }
 };
