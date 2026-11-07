@@ -19,6 +19,20 @@ struct Box {
     }
 };
 
+struct TextBox {
+    Box box;
+
+    TTF_Text* textObject = nullptr;
+
+    void render(SDL_Renderer* renderer) {
+        SDL_SetRenderDrawColor(renderer, box.color.r, box.color.g, box.color.b, box.color.a);
+        SDL_RenderFillRect(renderer, &box.rect);
+        int w, h;
+        TTF_GetTextSize(textObject, &w, &h);
+        TTF_DrawRendererText(textObject, box.rect.x + (box.rect.w - w)/2, box.rect.y + (box.rect.h - h)/2);
+    }
+};
+
 struct Button {
     Box normal;
     Box hovered;
@@ -51,6 +65,7 @@ struct Button {
 struct Screen {
     std::vector<Button> buttons;
     std::vector<Box> boxes;
+    std::vector<TextBox> texts;
 
     void update(SDL_FPoint mouse) {
         for (Button& button : buttons) {
@@ -68,12 +83,16 @@ struct Screen {
     }
 
     void render(SDL_Renderer* renderer) {
-        for (Button button: buttons) {
+        for (Button& button : buttons) {
             button.render(renderer);
         }
 
-        for (Box box : boxes) {
+        for (Box& box : boxes) {
             box.render(renderer);
+        }
+
+        for (TextBox& text : texts) {
+            text.render(renderer);
         }
     }
 };
@@ -89,6 +108,8 @@ struct MenuManager {
     Screen selection;
     Screen pause;
     Screen songs;
+    Screen lose;
+    Screen win;
     
     std::vector<std::string> screenStack = {"logo"};
     std::unordered_map<std::string, Screen> screens = {};
@@ -258,10 +279,98 @@ struct MenuManager {
             }
         };
 
+        win = Screen{
+            .buttons = {
+                Button{
+                    .normal = {
+                        .rect = {500, 700, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {500, 700, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Menu"),
+                    .onPressed = [&](){
+                        push_screen("logo");
+                        menuResult.action = MenuResult::Action::ToMenu;
+                    }
+                },
+                Button{
+                    .normal = {
+                        .rect = {1200, 700, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {1200, 700, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Restart"),
+                    .onPressed = [&](){
+                        set_screen("pause");
+                        menuResult.action = MenuResult::Action::ToLevel;
+                    }
+                },
+
+            },
+            .texts = {TextBox{
+                .box = {
+                    .rect = {800, 300, 400, 200},
+                    .color = {0, 0, 0, 0}
+                },
+                .textObject = text.create_text("Clear")
+            }}
+        };
+
+        lose = Screen{
+                        .buttons = {
+                Button{
+                    .normal = {
+                        .rect = {500, 700, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {500, 700, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Menu"),
+                    .onPressed = [&](){
+                        push_screen("logo");
+                        menuResult.action = MenuResult::Action::ToMenu;
+                    }
+                },
+                Button{
+                    .normal = {
+                        .rect = {1200, 700, 400, 200},
+                        .color = {255, 0, 0, 255}
+                    },
+                    .hovered = {
+                        .rect = {1200, 700, 400, 200},
+                        .color = {0, 0, 255, 255}
+                    },
+                    .textObject = text.create_text("Restart"),
+                    .onPressed = [&](){
+                        set_screen("pause");
+                        menuResult.action = MenuResult::Action::ToLevel;
+                    }
+                },
+
+            },
+            .texts = {TextBox{
+                .box = {
+                    .rect = {800, 300, 400, 200},
+                    .color = {0, 0, 0, 0}
+                },
+                .textObject = text.create_text("Failed")
+            }}
+        };
+
         screens["logo"] = logo;
         screens["selection"] = selection;
         screens["songs"] = songs;
         screens["pause"] = pause;
+        screens["win"] = win;
+        screens["lose"] = lose;
 
         return 0;
     }

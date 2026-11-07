@@ -5,7 +5,7 @@
 enum class State {
     Menu,
     Game,
-    Paused,
+    Overlay,
     Quit
 };
 
@@ -71,7 +71,7 @@ int main(int argc, char* argv[]) {
             } else {
                 if (state == State::Game) {
                     game_manager.get_event(event);
-                } else if (state == State::Menu || state == State::Paused) {
+                } else if (state == State::Menu || state == State::Overlay) {
                     menu_manager.get_event(event);
                 }
             }
@@ -81,9 +81,9 @@ int main(int argc, char* argv[]) {
         if (state == State::Game) {
             game_manager.update();
             
-            if (game_manager.gameResult.action == GameManager::GameResult::Action::Pause) {
-                state = State::Paused;
-                menu_manager.set_screen("pause");
+            if (game_manager.gameResult.action == GameManager::GameResult::Action::Overlay) {
+                state = State::Overlay;
+                menu_manager.set_screen(game_manager.gameResult.overlay);
                 game_manager.audio.pause();
                 game_manager.gameResult.action = GameManager::GameResult::Action::None;
             } else {
@@ -97,9 +97,8 @@ int main(int argc, char* argv[]) {
                 menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             }
             menu_manager.render();
-        } else if (state == State::Paused) {
+        } else if (state == State::Overlay) {
             menu_manager.update();
-            SDL_Log("%d", static_cast<int>(menu_manager.menuResult.action));
             
             if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToLevel) {
                 game_manager.reset(menu_manager.menuResult.curLevel);

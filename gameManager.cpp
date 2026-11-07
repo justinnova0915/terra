@@ -60,7 +60,8 @@ void GameManager::get_event(SDL_Event event) {
         }
 
         if (state == GameState::Game && event.key.key == SDLK_ESCAPE) {
-            gameResult.action = GameResult::Action::Pause;
+            gameResult.action = GameResult::Action::Overlay;
+            gameResult.overlay = "pause";
         }
     }
 }
@@ -76,9 +77,13 @@ void GameManager::update() {
         case GameState::Game:
             if (player.health <= 0) {
                 state = GameState::Death;
+                gameResult.action = GameResult::Action::Overlay;
+                gameResult.overlay = "lose";
                 audio.pause();
             } else if (levelManager.finished) {
                 state = GameState::Clear;
+                gameResult.action = GameResult::Action::Overlay;
+                gameResult.overlay = "win";
                 audio.pause();
             }
 
@@ -104,8 +109,6 @@ void GameManager::update() {
                     break;
             }
             break;
-        case GameState::Clear:
-            break;
     }
 }
 
@@ -117,15 +120,7 @@ void GameManager::render_scene() {
 
     levelManager.render(renderer, bullet_texture);
 
-    hud.render();
-    
-    if (state == GameState::Death) {
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 80);
-        SDL_RenderFillRect(renderer, nullptr);
-    } else if (state == GameState::Clear) {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 255, 80);
-        SDL_RenderFillRect(renderer, nullptr);
-    }   
+    hud.render();  
 }
 
 void GameManager::render() {

@@ -3,11 +3,6 @@
 #include <string>
 #include <SDL3_ttf/SDL_ttf.h>
 
-struct TextBox {
-    SDL_Texture* texture = nullptr;
-    SDL_FRect rect = {};
-};
-
 struct Text {
 
     const float fontSize = 48.0f;

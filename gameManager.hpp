@@ -97,10 +97,11 @@ struct GameManager {
     struct GameResult {
         enum class Action {
             None,
-            Pause
+            Overlay
         };
 
         Action action = Action::None;
+        std::string overlay = "";
     };
 
     HUD hud;
