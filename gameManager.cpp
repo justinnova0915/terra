@@ -45,6 +45,7 @@ int GameManager::init(SDL_Renderer* r, Audio a) {
 }
 
 void GameManager::reset(int song) {
+    state = GameState::Game;
     player.reset();
     levelManager.load(song);
     audio.load_song(levelManager.levels[levelManager.levelIndex].path);
