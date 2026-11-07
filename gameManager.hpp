@@ -39,8 +39,9 @@ struct HUD {
 
     float radius = 50;
 
-    float livesDuration = 5;
+    float livesDuration = 2;
     float elapsed = 0;
+    float liveSize = 10;
 
     HUDData hudData;
 
@@ -72,7 +73,7 @@ struct HUD {
         if (elapsed < livesDuration) {
             for (int i = 0; i < hudData.lives; i++) {
                 if (i < hudData.curLives) {
-                    SDL_FRect ind = {hudData.playerCenter.x+radius*std::cos(2*SDL_PI_F/hudData.lives*i), hudData.playerCenter.y+radius*std::sin(2*SDL_PI_F/hudData.lives*i), 10, 10};
+                    SDL_FRect ind = {hudData.playerCenter.x-liveSize/2+radius*std::cos(2*SDL_PI_F/hudData.lives*i - SDL_PI_F/2), hudData.playerCenter.y-liveSize/2+radius*std::sin(2*SDL_PI_F/hudData.lives*i - SDL_PI_F/2), liveSize, liveSize};
                     SDL_RenderFillRect(renderer, &ind);
                 }
             }
