@@ -24,6 +24,30 @@ struct Clock {
     void reset();
 };
 
+struct HUD {
+
+    SDL_Renderer* renderer;
+
+    struct HUDData {
+        float songProgress;
+    };
+
+    const SDL_FRect box = {0, 0, 1920, 20};
+
+    void init(SDL_Renderer* r) {
+        renderer = r;
+    }
+
+    void update(HUDData hudData) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+        SDL_FRect done = {box.x, box.y, 1920*hudData.songProgress, box.h};
+        SDL_RenderFillRect(renderer, &done);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_FRect notDone = {box.x, 1920*hudData.songProgress, 1920*(1-hudData.songProgress), box.h};
+        SDL_RenderFillRect(renderer, &notDone);
+    }
+};
+
 struct GameManager {
 
     enum class GameState {
@@ -45,6 +69,8 @@ struct GameManager {
 
         Action action = Action::None;
     };
+
+    HUD hud;
 
     GameResult gameResult;
 

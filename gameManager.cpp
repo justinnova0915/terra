@@ -83,6 +83,9 @@ void GameManager::update() {
             levelManager.update(dt, mapTime, {player.x, player.y});
 
             player.update(dt, keys);
+
+            hud.update(HUD::HUDData{levelManager.elapsed/levelManager.levels.back().duration});
+            
             switch (player.state) {
                 case Player::PlayerState::Live:
                     if (Collider::update(player, levelManager.levels[levelManager.levelIndex].projectiles, levelManager.levels[levelManager.levelIndex].beams)) {
