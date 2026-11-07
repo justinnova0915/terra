@@ -55,8 +55,8 @@ void Player::update(float dt, const bool* keys) {
         }
     }
 
-    x = std::clamp(x, 0.0f, static_cast<float>(Config::WINDOW_WIDTH));
-    y = std::clamp(y, 0.0f, static_cast<float>(Config::WINDOW_HEIGHT));
+    x = std::clamp(x, 0.0f, static_cast<float>(Config::WINDOW_WIDTH)-w);
+    y = std::clamp(y, 0.0f, static_cast<float>(Config::WINDOW_HEIGHT)-l);
 }
 
 void Player::on_hit() {
@@ -70,7 +70,7 @@ void Player::on_hit() {
 }
 
 void Player::reset() {
-    health = 50000000;
+    health = maxHealth;
     state = PlayerState::Live;
     cooldownElapsed = 0;
     x = default_x;

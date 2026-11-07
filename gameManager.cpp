@@ -86,7 +86,13 @@ void GameManager::update() {
 
             player.update(dt, keys);
 
-            hud.update(HUD::HUDData{levelManager.elapsed/levelManager.levels[levelManager.levelIndex].duration});
+            hud.update(HUD::HUDData{
+                .songProgress = levelManager.elapsed/levelManager.levels[levelManager.levelIndex].duration,
+                .curLives = player.health,
+                .lives = player.maxHealth,
+                .playerCenter = {player.x+player.w/2.0f, player.y+player.l/2.0f},
+                .dt = dt
+            });
 
             switch (player.state) {
                 case Player::PlayerState::Live:

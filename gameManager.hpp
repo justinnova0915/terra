@@ -14,6 +14,7 @@
 #include <SDL3_ttf/SDL_ttf.h>
 #include <string>
 #include <vector>
+#include <cmath>
 
 struct Clock {
     float time = 0;
@@ -30,7 +31,16 @@ struct HUD {
 
     struct HUDData {
         float songProgress;
+        int curLives;
+        int lives;
+        SDL_FPoint playerCenter;
+        float dt;
     };
+
+    float radius = 50;
+
+    float livesDuration = 5;
+    float elapsed = 0;
 
     HUDData hudData;
 
@@ -41,7 +51,13 @@ struct HUD {
     }
 
     void update(HUDData h) {
+
+        if (hudData.curLives == h.curLives + 1) {
+            elapsed = 0;
+        }
         hudData = h;
+
+        elapsed += h.dt;
     }
 
     void render() {
@@ -51,6 +67,16 @@ struct HUD {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_FRect notDone = {box.x+1920*hudData.songProgress, box.y, 1920*(1-hudData.songProgress), box.h};
         SDL_RenderFillRect(renderer, &notDone);
+        SDL_SetRenderDrawColor(renderer, 88, 180, 219, 255);
+
+        if (elapsed < livesDuration) {
+            for (int i = 0; i < hudData.lives; i++) {
+                if (i < hudData.curLives) {
+                    SDL_FRect ind = {hudData.playerCenter.x+radius*std::cos(2*SDL_PI_F/hudData.lives*i), hudData.playerCenter.y+radius*std::sin(2*SDL_PI_F/hudData.lives*i), 10, 10};
+                    SDL_RenderFillRect(renderer, &ind);
+                }
+            }
+        }
     }
 };
 
