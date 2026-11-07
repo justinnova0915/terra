@@ -54,6 +54,9 @@ void Player::update(float dt, const bool* keys) {
             y += travel;
         }
     }
+
+    x = std::clamp(x, 0.0f, static_cast<float>(Config::WINDOW_WIDTH));
+    y = std::clamp(y, 0.0f, static_cast<float>(Config::WINDOW_HEIGHT));
 }
 
 void Player::on_hit() {
