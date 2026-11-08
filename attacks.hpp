@@ -186,7 +186,8 @@ struct Beam {
 
     SDL_Color current_color = {};
 
-    bool alive = true;
+    bool alive = false;
+    bool active = false;
 
     void update(float dt, float time, SDL_FPoint playerPos);
 

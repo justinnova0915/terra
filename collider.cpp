@@ -30,7 +30,7 @@ namespace Collider {
         Circle playerCollider = {
             .x = player.x+player.w/2,
             .y = player.y+player.l/2,
-            .r = player.w
+            .r = player.w/2
         };
         
         for (int i = 0; i < projectiles.size(); i++) {
@@ -47,7 +47,7 @@ namespace Collider {
 
         for (int i = 0; i < beams.size(); i++) {
 
-            if (!beams[i].alive) {
+            if (!beams[i].active) {
                 continue;
             }
 

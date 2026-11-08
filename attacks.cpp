@@ -65,8 +65,9 @@ void Beam::update(float dt, float time, SDL_FPoint playerPos) {
     if (alive) {
         if (time < start_timestamp) {
             current_color = warning_color;
-            
-        } else {    
+            active = false;
+        } else {
+            active = true;    
             elapsed += dt;
 
             pos = pos_func.update(dt, playerPos);
