@@ -63,6 +63,10 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    if (editor.init(renderer, &audio)) {
+        return 1;
+    }
+
     SDL_Event event;
 
     while (state != State::Quit) {

@@ -2,6 +2,24 @@
 #include "audio.hpp"
 #include "font.hpp"
 
+struct TimeLine {
+
+    Level level = {};
+
+    bool init(Level level) {
+        level = level;
+        return 0;
+    }
+
+    void update() {
+
+    }
+
+    void render() {
+
+    }
+};
+
 struct Editor {
     Screen editor;
 
@@ -9,7 +27,9 @@ struct Editor {
     Audio* audio = nullptr;
     Text text;
 
-    void init(SDL_Renderer* r, Audio* a) {
+    TimeLine timeLine;
+
+    bool init(SDL_Renderer* r, Audio* a) {
         renderer = r;
         audio = a;
 
@@ -20,15 +40,17 @@ struct Editor {
                     .color = {255, 0, 0, 255}
                 },
                 Box{
-                    .rect = {820, 10, 1910, 260},
+                    .rect = {10, 820, 1500, 250},
                     .color = {0, 255, 0, 255}
                 },
                 Box{
-                    .rect = {1510, 10, 400, 1060},
+                    .rect = {1520, 10, 390, 1060},
                     .color = {0, 0, 255, 255}
                 },
             }
         };
+
+        return 0;
     }
 
     void update() {
