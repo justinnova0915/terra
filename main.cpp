@@ -1,11 +1,13 @@
 #include "gameManager.hpp"
 #include "menuManager.hpp"
+#include "editor.hpp"
 #include "audio.hpp"
 
 enum class State {
     Menu,
     Game,
     Overlay,
+    Editor,
     Quit
 };
 
@@ -16,6 +18,7 @@ MenuManager menu_manager;
 Audio audio;
 SDL_Window* window;
 SDL_Renderer* renderer;
+Editor editor;
 
 int init() {
     if (!SDL_Init(SDL_INIT_VIDEO)) {
@@ -95,6 +98,9 @@ int main(int argc, char* argv[]) {
                 game_manager.reset(menu_manager.menuResult.curLevel);
                 state = State::Game;
                 menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
+            } else if (menu_manager.menuResult.action == MenuManager::MenuResult::Action::ToEditor) {
+                state = State::Editor;
+                menu_manager.menuResult.action = MenuManager::MenuResult::Action::None;
             }
             menu_manager.render();
         } else if (state == State::Overlay) {
@@ -117,8 +123,11 @@ int main(int argc, char* argv[]) {
             game_manager.render_scene();
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 160);
             SDL_RenderFillRect(renderer, nullptr);
-            menu_manager.render();
+            menu_manager.screens[menu_manager.screenStack.back()].render(renderer);
             SDL_RenderPresent(renderer);
+        } else if (state == State::Editor) {
+            editor.update();
+            editor.render();
         }
     }
 

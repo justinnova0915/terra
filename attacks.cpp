@@ -79,6 +79,8 @@ void Beam::update(float dt, float time, SDL_FPoint playerPos) {
     
             current_color = normal_color;
         }
+    } else {
+        active = false;
     }
 }
 

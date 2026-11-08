@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.25)
 
 project(game VERSION 0.1.4 LANGUAGES CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 find_package(SDL3 QUIET)
 find_package(SDL3_mixer QUIET)
 find_package(SDL3_ttf QUIET)
