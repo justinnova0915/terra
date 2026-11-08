@@ -34,7 +34,6 @@ cmake --build build
 |---|---|
 | WASD | Move |
 | Space | Dash |
-| R | restart|
 
 ## Credits
 
